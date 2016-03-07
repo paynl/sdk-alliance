@@ -18,6 +18,7 @@
 	- [7. Getting available payment methods](#7-getting-available-payment-methods)
 	- [8. Enable a payment method](#8-enable-a-payment-method)
 	- [9. Disable a payment method](#9-disable-a-payment-method)
+	- [10. Get statistics of your submerchants](#10-get-statistics-of-your-submerchants)
 
 ---
 
@@ -220,4 +221,36 @@ $success = Paynl\Alliance\Service::disablePaymentMethod(array(
 if($success){
     // disabled
 }
+```
+
+##### 10. Get statistics of your submerchants
+You can get the statistics of your submerchants.
+For example to calculate the amount for the invoice in the next step
+See the following [example](https://github.com/paynl/sdk-alliance/blob/master/samples/getStatistics.php)
+
+You can use the predefined periods
+```php
+\Paynl\Alliance\Statistics::PERIOD_THIS_WEEK
+\Paynl\Alliance\Statistics::PERIOD_LAST_WEEK
+\Paynl\Alliance\Statistics::PERIOD_THIS_MONTH
+\Paynl\Alliance\Statistics::PERIOD_LAST_MONTH
+```
+
+For example
+
+```php
+$result = Paynl\Alliance\Statistics::getStats(array(
+    'period' => \Paynl\Alliance\Statistics::PERIOD_LAST_WEEK
+));
+var_dump($result->getData());
+```
+
+Or if you want to use your own start and end date
+
+```php
+$result = Paynl\Alliance\Statistics::getStats(array(
+    'startDate' => new DateTime('2015-03-01'),
+    'endDate' => new DateTime('2015-03-10')
+));
+var_dump($result->getData());
 ```
