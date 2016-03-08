@@ -19,6 +19,7 @@
 	- [8. Enable a payment method](#8-enable-a-payment-method)
 	- [9. Disable a payment method](#9-disable-a-payment-method)
 	- [10. Get statistics of your submerchants](#10-get-statistics-of-your-submerchants)
+	- [11. Creating an invoice for a merchant](#11-creating-an-invoice-for-a-merchant)
 
 ---
 
@@ -253,4 +254,27 @@ $result = Paynl\Alliance\Statistics::getStats(array(
     'endDate' => new DateTime('2015-03-10')
 ));
 var_dump($result->getData());
+```
+
+##### 11. Creating an invoice for a merchant
+You can add an invoice for a merchant.
+In order to be able to add an invoice to a merchant, you'll have to set the settleBalance option to true, when adding a merchant in [step 1](#1-adding-a-merchant)
+See the following [example](https://github.com/paynl/sdk-alliance/blob/master/samples/addInvoice.php)
+
+```php
+\Paynl\Config::setServiceId('SL-1234-1234');
+
+$result = Paynl\Alliance\Invoice::add(array(
+    // Required
+    'merchantId' => 'M-1234-1234', // the id of the merchant
+    'invoiceId' => 'INV012345', // Your reference number to the invoice
+    'amount' => 25.75, // The total amount of the invoice
+    'description' => 'Test invoice', // The description of the invoice
+
+    // Optional
+    'invoiceUrl' => 'http://url.to.the/invoice.pdf', // the url to the invoice
+    'makeYesterday' => true // if the invoice needs to be added in today's clearing, set this to true
+));
+
+$referenceId = $result->referenceId();
 ```
