@@ -15,16 +15,29 @@ use Paynl\Error\Required;
 
 class Document
 {
+    private static function addFile($path, Api\AddDocument $api){
+        if (!file_exists($path)) {
+            throw new Error('path is invalid, file does not exist');
+        }
+        $content = file_get_contents($path);
+        $api->addContent(base64_encode($content));
+    }
+
     public static function upload($options)
     {
         $api = new Api\AddDocument();
 
         if (isset($options['path'])) {
-            if (!file_exists($options['path'])) {
-                throw new Error('path is invalid, file does not exist');
+            if(is_string($options['path'])){
+                self::addFile($options['path'], $api);
+            } elseif(is_array($options['path'])){
+                foreach($options['path'] as $path){
+                    self::addFile($path, $api);
+                }
+            } else {
+                throw new Error('path is invalid');
             }
-            $content = file_get_contents($options['path']);
-            $api->setContent(base64_encode($content));
+
         } else {
             throw new Required('path');
         }
@@ -33,7 +46,11 @@ class Document
             $api->setFilename($options['filename']);
         } else {
             // We should use the filename from the path
-            $pathinfo = pathinfo($options['path']);
+            $path = $options['path'];
+            if(is_array($path)){
+                $path = $path[0];
+            }
+            $pathinfo = pathinfo($path);
             $api->setFilename($pathinfo['basename']);
 
         }

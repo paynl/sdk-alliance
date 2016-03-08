@@ -138,6 +138,22 @@ if($result->success()){
 }
 
 ```
+
+It is also possible to send multiple files. The files will be merged into one file on our server.
+Both files must be of the same type (pdf or image)
+
+```php
+$result = Paynl\Alliance\Document::upload(array(
+      'documentId' => 'D-1234-5678',
+      'path' => array('/path/to/the/file', 'path/to/the/second/file'),
+      'filename' => 'rekeningAfschrift.pdf' // optional, when you leave this blank, the filename from the path will be used
+	));
+
+if($result->success()){
+}
+
+```
+
 ##### 5. Getting the list of available categories
 You must select the correct category for the services you add for the merchant.
 The available paymentmethods differ for each category (for example, a wine giftcard is only valid for category wines)

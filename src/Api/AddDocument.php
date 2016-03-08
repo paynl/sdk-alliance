@@ -26,7 +26,7 @@ class AddDocument extends Api
      */
     private $_filename;
     /**
-     * @var string base64 encoded content of the document
+     * @var string[] base64 encoded content of the document
      */
     private $_content;
 
@@ -49,9 +49,9 @@ class AddDocument extends Api
     /**
      * @param string $content
      */
-    public function setContent($content)
+    public function addContent($content)
     {
-        $this->_content = $content;
+        $this->_content[] = $content;
     }
 
     protected function getData()
@@ -66,10 +66,14 @@ class AddDocument extends Api
         }
         $this->data['documentId'] = $this->_documentId;
 
-        if (!isset($this->_content)) {
+        if (!isset($this->_content) && !empty($this->_content)) {
             throw new Required('content');
         }
-        $this->data['documentFile'] = $this->_content;
+        if(count($this->_content) == 1){
+            $this->data['documentFile'] = $this->_content[0];
+        } else {
+            $this->data['documentFile'] = $this->_content;
+        }
 
         return parent::getData();
     }
