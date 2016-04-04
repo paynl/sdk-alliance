@@ -22,7 +22,7 @@ try {
                     'lastname' => 'Pieters',
                     'gender' => 'male',
                     'authorisedToSign' => 2,
-                    //0 not authorised, 1 authorised independently, 2  shared authorized to sign
+                    //0 not authorised, 1 authorised independently, 2  shared authority to sign
                     'ubo' => true,
                     // Ultimate beneficial owner (25% of more shares)
                 ),
@@ -33,7 +33,7 @@ try {
                     'lastname' => 'Eigenaar',
                     'gender' => 'female',
                     'authorisedToSign' => 2,
-                    //0 not authorised, 1 authorised independently, 2  shared authorized to sign
+                    //0 not authorised, 1 authorised independently, 2  shared authority to sign
                     'ubo' => true,
                     // Ultimate beneficial owner (25% of more shares)
                 ),
@@ -44,7 +44,7 @@ try {
                     'lastname' => 'Eigenaar',
                     'gender' => 'female',
                     'authorisedToSign' => 2,
-                    //0 not authorised, 1 authorised independently, 2  shared authorized to sign
+                    //0 not authorised, 1 authorised independently, 2 shared authority to sign
                     'ubo' => true,
                     // Ultimate beneficial owner (25% of more shares)
                 ),
@@ -68,9 +68,11 @@ try {
             'packageName' => 'Alliance', // Alliance or AlliancePlus
 
             /*
-             * Set to true if you want to be able to add a debit invoice to the account of this merchant.
-             * Your invoice will be subtracted from the merchants account.
-             * You will need to ask the merchant for permission before you can set this value to true
+             * Set to true if you want to be able to debit the balance of this merchant.
+             * Your invoice may be subtracted from the merchants balance via the Alliance:addInvoice API.
+             * You need to ask the Merchant permission before setting this value to true
+             * This also adds an extra line in the generated contract, granting permission to access the balance
+             * and granting access to the Submerchant's account and statistics
              */
             'settleBalance' => false, // see above
             'payoutInterval' => 'week' //day, week or month
