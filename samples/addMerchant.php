@@ -12,6 +12,7 @@ try {
             'houseNumber' => '10',
             'postalCode' => '7547 TK',
             'city' => 'Enschede',
+            'countryCode' => 'NL', // Available countries: NL, BE, LU, FR, UK, DK, ES, DE, IT, GR
             'accounts' => array(
                 // Minimum of 1 account, you can add more, one account must be primary, the other accounts cannot be primary
                 array(
