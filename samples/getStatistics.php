@@ -20,7 +20,17 @@ try {
      * \Paynl\Alliance\Statistics::PERIOD_LAST_MONTH
      */
     $result = Paynl\Alliance\Statistics::getStats(array(
-        'period' => \Paynl\Alliance\Statistics::PERIOD_LAST_WEEK
+        'period' => \Paynl\Alliance\Statistics::PERIOD_THIS_WEEK,
+
+        'excludeSandbox' => true,
+
+        'filters' => array(
+            array(
+                'key' => 'payment_profile_id',
+                'value' => '10',
+                'operator' => 'eq' // possible values are: 'eq', 'neq', 'gt', 'lt', 'like'
+            ),
+        ),
     ));
 
     $data = $result->getData();

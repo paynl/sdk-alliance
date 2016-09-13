@@ -20,6 +20,21 @@ class Statistics
             $api->setStartDate($period[0]);
             $api->setEndDate($period[1]);
         }
+        if(isset($options['filters']) && is_array($options['filters'])){
+            foreach($options['filters'] as $filter){
+                if(!isset($filter['key']) || !isset($filter['value'])){
+                    throw new Error("Invalid filter, a filter need a 'key', 'value' and optionally an operator");
+                }
+                if(isset($filter['operator'])){
+                    $api->addFilter($filter['key'], $filter['value'], $filter['operator']);
+                } else {
+                    $api->addFilter($filter['key'], $filter['value']);
+                }
+            }
+        }
+        if(isset($options['excludeSandbox'])){
+            $api->addFilter('payment_profile_id', 613, 'neq');
+        }
 
         if(isset($options['startDate'])){
             $api->setStartDate($options['startDate']);
