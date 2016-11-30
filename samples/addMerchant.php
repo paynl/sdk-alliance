@@ -67,8 +67,9 @@ try {
             'bankAccountBIC' => 'ABNANL2A',
             'vatNumber' => 'NL123412413',
             'packageName' => 'Alliance', // Alliance or AlliancePlus
-
-            /*
+            'referralProfileId' => 'CP-1234-5678', // Loads initial settings for the added merchant, like clearing frequency, 
+            /*  package and and more. This code is provided by Pay.nl. 
+             *
              * Set to true if you want to be able to debit the balance of this merchant.
              * Your invoice may be subtracted from the merchants balance via the Alliance:addInvoice API.
              * You need to ask the Merchant permission before setting this value to true
