@@ -3,10 +3,9 @@
 namespace Paynl\Alliance\Api;
 
 
+use Paynl\Error\Api as ApiError;
 use Paynl\Error\Error;
 use Paynl\Error\Required;
-
-use Paynl\Error\Api as ApiError;
 use Paynl\Helper;
 
 class AddMerchant extends Api
@@ -106,12 +105,11 @@ class AddMerchant extends Api
      * @var bool
      */
     private $_ubo;
-
     /**
      * @var int 0 : No e-mail, 1 : Regular registration e-mail, 2: Short registration e-mail
      */
     private $_sendEmail;
-
+    private $_referralProfileId;
     /**
      * Set to true if you want to be able to add a debit invoice to the account of this merchant.
      * Your invoice will be subtracted from the merchants account.
@@ -120,7 +118,6 @@ class AddMerchant extends Api
      * @var bool
      */
     private $_settleBalance;
-
     /**
      * @var bool
      */
@@ -135,6 +132,14 @@ class AddMerchant extends Api
      * @var array Signees
      */
     private $_signees = array();
+
+    /**
+     * @param string $referralProfileId
+     */
+    public function setReferralProfileId($referralProfileId)
+    {
+        $this->_referralProfileId = $referralProfileId;
+    }
 
     /**
      * @param string $cocNumber
@@ -355,6 +360,11 @@ class AddMerchant extends Api
         $this->_signees[] = $signee;
     }
 
+    public function doRequest($endpoint = null, $version = null)
+    {
+        return parent::doRequest('alliance/addMerchant');
+    }
+
     protected function getData()
     {
         if (isset($this->_email)) {
@@ -457,6 +467,9 @@ class AddMerchant extends Api
         if (isset($this->_packageName)) {
             $this->data['packageName'] = $this->_packageName;
         }
+        if (isset($this->_referralProfileId)) {
+            $this->data['referralProfileId'] = $this->_referralProfileId;
+        }
         if (isset($this->_settleBalance)) {
             $this->data['settleBalance'] = (bool)$this->_settleBalance;
         }
@@ -479,11 +492,6 @@ class AddMerchant extends Api
             throw new ApiError($output['error_field'] . ' - ' . $output['error_message']);
         }
         return $output;
-    }
-
-    public function doRequest($endpoint = null, $version = null)
-    {
-        return parent::doRequest('alliance/addMerchant');
     }
 
 }

@@ -7,7 +7,7 @@ try {
         array(
             // Required
             'companyName' => 'allianceAddTest',
-            'cocNumber' => '54212455',
+            'cocNumber' => '54212457',
             'street' => 'Kopersteden',
             'houseNumber' => '10',
             'postalCode' => '7547 TK',
@@ -67,6 +67,9 @@ try {
             'bankAccountBIC' => 'ABNANL2A',
             'vatNumber' => 'NL123412413',
             'packageName' => 'Alliance', // Alliance or AlliancePlus
+
+//            'referralProfileId' => 'CP-1234-1234', // Only use this if you know what it is
+
 
             /*
              * Set to true if you want to be able to debit the balance of this merchant.

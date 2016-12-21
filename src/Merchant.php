@@ -116,6 +116,9 @@ class Merchant
         if (isset($options['settleBalance'])) {
             $api->setSettleBalance($options['settleBalance']);
         }
+        if(isset($options['referralProfileId'])){
+            $api->setReferralProfileId($options['referralProfileId']);
+        }
         if (isset($options['payoutInterval'])) {
             $api->setInvoiceInterval($options['payoutInterval']);
         }
