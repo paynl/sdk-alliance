@@ -34,9 +34,16 @@ class Service
         if (isset($options['url'])) {
             $api->setPublication($options['url']);
         }
-        if (isset($options['alwaysSendExchange'])) {
-            $api->setAlwaysSendExchange($options['alwaysSendExchange']);
+
+        $exchange = [];
+        if(isset($options['exchange'])){
+            $exchange = $options['exchange'];
         }
+        if (isset($options['alwaysSendExchange'])) {
+            $exchange['alwaysSendExchange'] = $options['alwaysSendExchange'];
+        }
+        $api->setExchange($exchange);
+
         if (isset($options['extraUrls'])) {
             $api->setPublicationUrls($options['extraUrls']);
         }

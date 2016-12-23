@@ -7,7 +7,7 @@ try {
         array(
             // Required
             'companyName' => 'allianceAddTest',
-            'cocNumber' => '54212457',
+            'cocNumber' => '54212458',
             'street' => 'Kopersteden',
             'houseNumber' => '10',
             'postalCode' => '7547 TK',
@@ -61,7 +61,6 @@ try {
              * 2 - The shortened alliance registration email is sent
              */
             'sendEmail' => 1, // see above
-            'countryCode' => 'NL',
             'bankAccountOwner' => 'Andy Pieters',
             'bankAccountNumber' => 'NL91ABNA0417164300',
             'bankAccountBIC' => 'ABNANL2A',

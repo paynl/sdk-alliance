@@ -9,7 +9,7 @@
     }
   ],
   "require": {
-    "paynl/sdk": "v1.1.5"
+    "paynl/sdk": ">1.2"
   },
   "autoload":{
     "psr-4": {
