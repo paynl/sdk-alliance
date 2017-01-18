@@ -6,8 +6,8 @@ try {
     $result = \Paynl\Alliance\Merchant::add(
         array(
             // Required
-            'companyName' => 'allianceAddTest',
-            'cocNumber' => '54212458',
+            'companyName' => 'Addv3Test',
+            'cocNumber' => '54292456',
             'street' => 'Kopersteden',
             'houseNumber' => '10',
             'postalCode' => '7547 TK',
@@ -16,38 +16,52 @@ try {
             'accounts' => array(
                 // Minimum of 1 account, you can add more, one account must be primary, the other accounts cannot be primary
                 array(
-                    'primary' => true,
-                    // One account must be primary
                     'email' => 'email@test.nl',
                     'firstname' => 'Andy',
                     'lastname' => 'Pieters',
                     'gender' => 'male',
                     'authorisedToSign' => 2,
                     //0 not authorised, 1 authorised independently, 2  shared authority to sign
-                    'ubo' => true,
-                    // Ultimate beneficial owner (25% of more shares)
+                    'ubo' => 50, //percentage of shares
+                    'hasAccess'=> true,
+//                    'language' => 'nl',
+                    'useCompanyAuth' => true // All company rights
                 ),
                 array(
-                    'primary' => false,
                     'email' => 'email2@test.nl',
                     'firstname' => 'Mede',
                     'lastname' => 'Eigenaar',
                     'gender' => 'female',
                     'authorisedToSign' => 2,
                     //0 not authorised, 1 authorised independently, 2  shared authority to sign
-                    'ubo' => true,
-                    // Ultimate beneficial owner (25% of more shares)
+                    'ubo' => 25, //percentage of shares
+                    'hasAccess'=> true,
+//                    'language' => 'en',
+                    'useCompanyAuth' => false // All company rights
                 ),
                 array(
-                    'primary' => false,
                     'email' => 'email4@test.nl',
                     'firstname' => 'Mede',
                     'lastname' => 'Eigenaar',
                     'gender' => 'female',
                     'authorisedToSign' => 2,
                     //0 not authorised, 1 authorised independently, 2 shared authority to sign
-                    'ubo' => true,
-                    // Ultimate beneficial owner (25% of more shares)
+                    'ubo' => 25, //percentage of shares
+                    'hasAccess'=> false,
+//                    'language' => 'de',
+                    'useCompanyAuth' => false // All company rights
+                ),
+                array(
+                    'email' => 'email5@test.nl',
+                    'firstname' => 'Mede',
+                    'lastname' => 'Eigenaar2',
+                    'gender' => 'female',
+                    'authorisedToSign' => 0,
+                    //0 not authorised, 1 authorised independently, 2 shared authority to sign
+                    'ubo' => false, //percentage of shares
+                    'hasAccess'=> true,
+//                    'language' => 'de',
+                    'useCompanyAuth' => false // All company rights
                 ),
             ),
 
@@ -64,7 +78,7 @@ try {
             'bankAccountOwner' => 'Andy Pieters',
             'bankAccountNumber' => 'NL91ABNA0417164300',
             'bankAccountBIC' => 'ABNANL2A',
-            'vatNumber' => 'NL123412413',
+//            'vatNumber' => 'NL807960147B01',
             'packageName' => 'Alliance', // Alliance or AlliancePlus
 
 //            'referralProfileId' => 'CP-1234-1234', // Only use this if you know what it is

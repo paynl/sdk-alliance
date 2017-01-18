@@ -76,52 +76,19 @@ class Merchant
         if (isset($options['accounts'])) {
             self::_addAccounts($options['accounts'], $api);
         }
+        $merchant = self::_getMerchant($options);
+        $api->setMerchant($merchant);
 
-        if (isset($options['companyName'])) {
-            $api->setCompanyName($options['companyName']);
+        $bankAccount = self::_getBankAccount($options);
+        if (!empty($bankAccount)) {
+            $api->setBankAccount($bankAccount);
         }
-        if (isset($options['cocNumber'])) {
-            $api->setCocNumber($options['cocNumber']);
+
+        $settings = self::_getSettings($options);
+        if (!empty($settings)) {
+            $api->setSettings($settings);
         }
-        if (isset($options['street'])) {
-            $api->setStreet($options['street']);
-        }
-        if (isset($options['houseNumber'])) {
-            $api->setHouseNumber($options['houseNumber']);
-        }
-        if (isset($options['postalCode'])) {
-            $api->setPostalCode($options['postalCode']);
-        }
-        if (isset($options['city'])) {
-            $api->setCity($options['city']);
-        }
-        if (isset($options['sendEmail'])) {
-            $api->setSendEmail($options['sendEmail']);
-        }
-        if (isset($options['countryCode'])) {
-            $api->setCountryCode($options['countryCode']);
-        }
-        if (isset($options['bankAccountOwner'])) {
-            $api->setBankAccountOwner($options['bankAccountOwner']);
-        }
-        if (isset($options['bankAccountNumber'])) {
-            $api->setBankAccountNumber($options['bankAccountNumber']);
-        }
-        if (isset($options['bankAccountBIC'])) {
-            $api->setBankAccountBic($options['bankAccountBIC']);
-        }
-        if (isset($options['packageName'])) {
-            $api->setPackageName($options['packageName']);
-        }
-        if (isset($options['settleBalance'])) {
-            $api->setSettleBalance($options['settleBalance']);
-        }
-        if(isset($options['referralProfileId'])){
-            $api->setReferralProfileId($options['referralProfileId']);
-        }
-        if (isset($options['payoutInterval'])) {
-            $api->setInvoiceInterval($options['payoutInterval']);
-        }
+
         $result = $api->doRequest();
 
         return new Result\Merchant\Add($result);
@@ -140,67 +107,152 @@ class Merchant
         if (count($accounts) == 0) {
             throw new Required('accounts');
         }
-        $primaryAccount = null;
-        $signees = array();
-        if (count($accounts) == 1) {
-            $primaryAccount = array_pop($accounts);
-        } else {
-            foreach ($accounts as $account) {
-                if ($account['primary']) {
-                    if (!is_null($primaryAccount)) {
-                        throw new Error('You can only add 1 primary account');
-                    }
-                    $primaryAccount = $account;
+
+        foreach ($accounts as $account) {
+            if (!isset($account['email'])) {
+                throw new Required('account - email');
+            }
+            if (!isset($account['firstname'])) {
+                throw new Required('account - firstname');
+            }
+            if (!isset($account['lastname'])) {
+                throw new Required('account - lastname');
+            }
+            if (!isset($account['gender'])) {
+                throw new Required('account - gender');
+            }
+
+            if (!isset($account['authorizedToSign'])) {
+                if (isset($account['authorisedToSign'])) {
+                    $account['authorizedToSign'] = $account['authorisedToSign'];
                 } else {
-                    array_push($signees, $account);
+                    throw new Required('account - authorizedToSign');
                 }
             }
-        }
-        if (is_null($primaryAccount)) {
-            throw new Error('One account must be the primary account');
-        }
-        if (isset($primaryAccount['email'])) {
-            $api->setEmail($primaryAccount['email']);
-        }
-        if (isset($primaryAccount['firstname'])) {
-            $api->setFirstName($primaryAccount['firstname']);
-        }
-        if (isset($primaryAccount['lastname'])) {
-            $api->setLastName($primaryAccount['lastname']);
-        }
-        if (isset($primaryAccount['gender'])) {
-            $api->setGender($primaryAccount['gender']);
-        }
-        if (isset($primaryAccount['authorisedToSign'])) {
-            $api->setAuthorisedToSign($primaryAccount['authorisedToSign']);
-        }
-        if (isset($primaryAccount['ubo'])) {
-            $api->setUbo($primaryAccount['ubo']);
-        }
-        if (!empty($signees)) {
-            foreach ($signees as $signee) {
-                if (empty($signee['email'])) {
-                    throw new Required('account - email');
+
+            if (!isset($account['authorizedToSign'])) {
+                if (!isset($account['authorisedToSign'])) {
+                    throw new Required('account - authorizedToSign');
                 }
-                if (empty($signee['firstname'])) {
-                    throw new Required('account - firstname');
-                }
-                if (empty($signee['lastname'])) {
-                    throw new Required('account - lastname');
-                }
-                if (empty($signee['gender'])) {
-                    throw new Required('account - gender');
-                }
-                if (empty($signee['authorisedToSign'])) {
-                    $signee['authorisedToSign'] = 0;
-                }
-                if (empty($signee['ubo'])) {
-                    $signee['ubo'] = 0;
-                }
-                $api->addSignee($signee['email'], $signee['firstname'], $signee['lastname'],
-                    $signee['authorisedToSign'], $signee['ubo']);
+                $account['authorizedToSign'] = $account['authorisedToSign'];
             }
+
+            if (!isset($account['ubo'])) {
+                throw new Required('account - ubo');
+            }
+            if (!isset($account['uboPercentage'])) {
+                if (is_numeric($account['ubo']) && $account['ubo'] > 0 && $account['ubo'] <= 100) {
+                    $account['uboPercentage'] = $account['ubo'];
+                    $account['ubo'] = true;
+                }
+            }
+            $account['ubo'] = (integer)$account['ubo'];
+
+            if(isset($account['hasAccess'])){
+                $account['hasAccess'] = (integer) $account['hasAccess'];
+            }
+            if(isset($account['useCompanyAuth'])){
+                $account['useCompanyAuth'] = (integer) $account['useCompanyAuth'];
+            }
+
+            $api->addAccount($account);
+
         }
+    }
+
+    /**
+     * @param array $options
+     */
+    private static function _getMerchant($options)
+    {
+        $merchant = array();
+
+        if (!isset($options['companyName'])) {
+            throw new Required('companyName');
+        }
+        $merchant['name'] = $options['companyName'];
+
+        if (!isset($options['cocNumber'])) {
+            throw new Required('cocNumber');
+        }
+        $merchant['coc'] = $options['cocNumber'];
+
+        if (!isset($options['street'])) {
+            throw new Required('street');
+        }
+        $merchant['street'] = $options['street'];
+
+        if (!isset($options['houseNumber'])) {
+            throw new Required('houseNumber');
+        }
+        $merchant['houseNumber'] = $options['houseNumber'];
+
+        if (!isset($options['postalCode'])) {
+            throw new Required('postalCode');
+        }
+        $merchant['postalCode'] = $options['postalCode'];
+
+        if (!isset($options['city'])) {
+            throw new Required('city');
+        }
+        $merchant['city'] = $options['city'];
+
+        if (!isset($options['countryCode'])) {
+            throw new Required('countryCode');
+        }
+        $merchant['countryCode'] = $options['countryCode'];
+
+        /**
+         * Optional
+         */
+        if (isset($options['vatNumber'])) {
+            $merchant['vat'] = $options['vatNumber'];
+        }
+        if (isset($options['houseNumberAddition'])) {
+            $merchant['houseNumberAddition'] = $options['houseNumberAddition'];
+        }
+        return $merchant;
+    }
+
+    private static function _getBankAccount($options)
+    {
+        $bankAccount = array();
+        if (isset($options['bankAccountOwner'])) {
+            $bankAccount['bankAccountOwner'] = $options['bankAccountOwner'];
+        }
+        if (isset($options['bankAccountNumber'])) {
+            $bankAccount['bankAccountNumber'] = $options['bankAccountNumber'];
+        }
+        if (isset($options['bankAccountBIC'])) {
+            $bankAccount['bankAccountBIC'] = $options['bankAccountBIC'];
+        }
+        return $bankAccount;
+    }
+
+    private static function _getSettings($options)
+    {
+        $settings = array();
+
+        if (isset($options['packageName'])) {
+            $settings['packageName'] = $options['packageName'];
+        }
+        if (isset($options['packageName'])) {
+            $settings['packageName'] = $options['packageName'];
+        }
+
+        if (isset($options['sendEmail'])) {
+            $settings['sendEmail'] = $options['sendEmail'];
+        }
+        if (isset($options['settleBalance'])) {
+            $settings['settleBalance'] = (integer)$options['settleBalance'];
+        }
+        if (isset($options['referralProfileId'])) {
+            $settings['referralProfileId'] = $options['referralProfileId'];
+        }
+        if (isset($options['clearingInterval'])) {
+            $settings['clearingInterval'] = $options['clearingInterval'];
+        }
+        return $settings;
     }
 
     /**
