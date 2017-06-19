@@ -36,7 +36,7 @@ try {
         ),
         'exchange' => array(
             /**
-             * 0 no exchnage
+             * 0 no exchange
              * 1 define urls here
              * 2 url is supplied with the transaction start call
              */
@@ -44,7 +44,7 @@ try {
 
             /**
              * 0 only on succesfull transaction
-             * 1 all status chacnges
+             * 1 all status changes
              */
             'alwaysSendExchange' => 1,
 
