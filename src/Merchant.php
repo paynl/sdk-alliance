@@ -284,4 +284,24 @@ class Merchant
         return new Result\Merchant\GetList($result);
     }
 
+    /**
+     * @param $options
+     */
+    public static function addBankAccount($options = array()){
+        $api = new Api\AddBankAccount();
+
+        if(isset($options['merchantId'])){
+            $api->setMerchantId($options['merchantId']);
+        }
+        if(isset($options['returnUrl'])){
+            $api->setReturnUrl($options['returnUrl']);
+        }
+        if(isset($options['bankId'])){
+            $api->setBankId($options['bankId']);
+        }
+
+        $result = $api->doRequest();
+
+        return $result['issuerUrl'];
+    }
 }
