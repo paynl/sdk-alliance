@@ -12,9 +12,10 @@ try {
             'houseNumber' => '10',
             'postalCode' => '7547 TK',
             'city' => 'Enschede',
-            'countryCode' => 'NL', // Available countries: NL, BE, LU, FR, UK, DK, ES, DE, IT, GR
+            'countryCode' => 'NL', // Available countries: AT, BE, BG, CY, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IT,
+                                   //                      LT, LU, MT, NL, NO, PL, PT, RO, SE & SK                     
             'accounts' => array(
-                // Minimum of 1 account, you can add more, one account must be primary, the other accounts cannot be primary
+                // Minimum of 1 account. you can add more, one account must be primary, the other accounts cannot be primary
                 array(
                     'email' => 'email@test.nl',
                     'firstname' => 'Andy',
@@ -23,14 +24,14 @@ try {
                     'authorisedToSign' => 2,
                     //0 not authorised, 1 authorised independently, 2  shared authority to sign
                     'ubo' => 50, //percentage of shares
-                    'hasAccess'=> true,
-//                    'language' => 'nl',
-                    'useCompanyAuth' => true // All company rights
+                    'hasAccess'=> true, //allow access to the pay.nl admin panel
+//                    'language' => 'nl', //available languages: NL, FR, EN, FL, DE
+                    'useCompanyAuth' => true // set to true to grant full company rights
                 ),
                 array(
                     'email' => 'email2@test.nl',
-                    'firstname' => 'Mede',
-                    'lastname' => 'Eigenaar',
+                    'firstname' => 'Co',
+                    'lastname' => 'Owner',
                     'gender' => 'female',
                     'authorisedToSign' => 2,
                     //0 not authorised, 1 authorised independently, 2  shared authority to sign
@@ -41,20 +42,20 @@ try {
                 ),
                 array(
                     'email' => 'email4@test.nl',
-                    'firstname' => 'Mede',
-                    'lastname' => 'Eigenaar',
+                    'firstname' => 'Co',
+                    'lastname' => 'Owner1',
                     'gender' => 'female',
                     'authorisedToSign' => 2,
                     //0 not authorised, 1 authorised independently, 2 shared authority to sign
                     'ubo' => 25, //percentage of shares
-                    'hasAccess'=> false,
+                    'hasAccess'=> false, //
 //                    'language' => 'de',
                     'useCompanyAuth' => false // All company rights
                 ),
                 array(
                     'email' => 'email5@test.nl',
-                    'firstname' => 'Mede',
-                    'lastname' => 'Eigenaar2',
+                    'firstname' => 'Co',
+                    'lastname' => 'Owner2',
                     'gender' => 'female',
                     'authorisedToSign' => 0,
                     //0 not authorised, 1 authorised independently, 2 shared authority to sign
@@ -70,18 +71,19 @@ try {
             /*
              * So you want to send a registration email to the accounts.
              * The options are:
-             * 0 - No email is sent
-             * 1 - The default registration email is sent
-             * 2 - The shortened alliance registration email is sent
+             * 0 - No email is sent at all
+             * 1 - The default registration email is sent with a brief introduction about the partnership
+             * 2 - The shortened alliance registration email is sent with just login credentials
              */
             'sendEmail' => 1, // see above
             'bankAccountOwner' => 'Andy Pieters',
             'bankAccountNumber' => 'NL91ABNA0417164300',
             'bankAccountBIC' => 'ABNANL2A',
-//            'vatNumber' => 'NL807960147B01',
+//            'vatNumber' => 'NL807960147B01', // optional, as there is no VAT relation between Pay.nl and submerchant
             'packageName' => 'Alliance', // Alliance or AlliancePlus
 
-//            'referralProfileId' => 'CP-1234-1234', // Only use this if you know what it is
+//            'referralProfileId' => 'CP-1234-1234', // Allows Pay.nl to load settings of company. Only use this if you have
+                                                     // been provided a code by pay.nl
 
 
             /*
@@ -91,8 +93,8 @@ try {
              * This also adds an extra line in the generated contract, granting permission to access the balance
              * and granting access to the Submerchant's account and statistics
              */
-            'settleBalance' => false, // see above
-            'payoutInterval' => 'week' //day, week or month
+            'settleBalance' => true, // see above
+            'payoutInterval' => 'week' //day, week, month or manual by using merchant::addClearing API
         )
     );
 
