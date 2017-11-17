@@ -36,6 +36,14 @@ class Get extends Merchant
                 array_push($result, $document);
             }
         }
+        foreach ($this->data['accounts'] as $account) {
+            foreach ($account['documents'] as $document) {
+                if (!in_array($document['status_id'], array(2, 3))) {
+                    $document['type_name'] .= ' - ' . $account['name'];
+                    array_push($result, $document);
+                }
+            }
+        }
 
         return $result;
     }
