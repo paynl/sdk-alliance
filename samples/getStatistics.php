@@ -27,8 +27,8 @@ try {
         'filters' => array(
             array(
                 'key' => 'payment_profile_id',
-                'operator' => 'eq' // possible values are: 'eq', 'neq', 'gt', 'lt', 'like'
-                'value' => '10',
+                'operator' => 'eq', // possible values are: 'eq', 'neq', 'gt', 'lt', 'like'
+                'value' => '10'
             ),
         ),
     ));
