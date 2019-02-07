@@ -48,7 +48,7 @@ Coming soon..
 
 ### Setting up
 To communicate with the API of Pay.nl, you'll need to authenticate.
-Pay.nl uses a token to authenticate you. You can find your token in the pay.nl admin. On the bottom of the [My Merchant](https://admin.pay.nl/my_merchant) page.
+Pay.nl uses a token to authenticate you. You can find your token in the pay.nl admin. On the bottom of the [API Tokens](https://admin.pay.nl/company/tokens) page.
 
 ##### Step 1 the autoloader
 Composer generates an autoloader for your application.
