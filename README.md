@@ -60,9 +60,10 @@ require_once('path_to/vendor/autoload.php');
 ```
 
 ##### Step 2 Your APItoken
-To let the SDK know what your APItoken is, you'll have to register the APItoken as follows:
+To let the SDK know what your APItoken is, you'll have to register the TokenCode (AT-code belonging to the token) and APItoken as follows:
 
 ```php
+\Paynl\Config::setTokenCode('AT-....-....');
 \Paynl\Config::setApiToken('YOUR_API_TOKEN');
 ```
 
