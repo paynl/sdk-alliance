@@ -298,7 +298,7 @@ $referenceId = $result->referenceId();
 ```
 
 ##### 12. Starting a payment for a submerchant
-Starting a payment for a submerchant is quite similar to the [SDK](https://github.com/paynl/sdk) one, however to start a payment for a sub merchant in the alliance SDK, the sub merchant Sale Location (setServiceId) has to be used. This is <b>important</b> since this SL will indicate that the charge will be done to one of the sub merchant(s)
+Starting a payment for a submerchant is quite similar to our [SDK](https://github.com/paynl/sdk) one, however to start a payment for a sub merchant in the alliance SDK, the sub merchant Sale Location (setServiceId) has to be used. This is <b>important</b> since this SL will indicate that the charge will be done to one of the sub merchant(s)
 
 
 ```php
