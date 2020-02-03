@@ -277,6 +277,7 @@ var_dump($result->getData());
 You can add an invoice for a merchant.
 In order to be able to add an invoice to a merchant, you'll have to set the settleBalance option to true, when adding a merchant in [step 1](#1-adding-a-merchant)
 See the following [example](https://github.com/paynl/sdk-alliance/blob/master/samples/addInvoice.php)
+Make sure that in this instance the SL of the alliance partner is used.
 
 ```php
 \Paynl\Config::setServiceId('SL-1234-1234');
@@ -294,4 +295,78 @@ $result = Paynl\Alliance\Invoice::add(array(
 ));
 
 $referenceId = $result->referenceId();
+```
+
+##### 12. Starting a payment for a submerchant
+Starting a payment for a submerchant is quite similar to our [SDK](https://github.com/paynl/sdk) one, however to start a payment for a sub merchant in the alliance SDK, the sub merchant Sale Location (setServiceId) has to be used. This is <b>important</b> since this SL will indicate that the charge will be done to one of the sub merchant(s)
+
+
+```php
+\Paynl\Config::setServiceId('SL-1234-1234'); //Please make sure to use the SL of your submerchant!
+
+$result = \Paynl\Transaction::start(array(
+    // required
+        'amount' => .01,
+        'returnUrl' => Paynl\Helper::getBaseUrl().'/return.php',
+        'paymentMethod' => 10,
+        'bank' => 1,
+    // optional
+    'currency' => 'EUR',
+    'exchangeUrl' => Paynl\Helper::getBaseUrl().'/exchange.php',
+    'description' => 'inStore Test :D',
+    'testmode' => 0,
+    'extra1' => 'ext1',
+    'extra2' => 'ext2',
+    'extra3' => 'ext3',
+    'products' => array(
+        array(
+            'id' => 1,
+            'name' => 'een product',
+            'price' => 5.00,
+            'tax' => 0.87,
+            'qty' => 1,
+        ),
+        array(
+            'id' => 2,
+            'name' => 'ander product',
+            'price' => 5.00,
+            'tax' => 0.87,
+            'qty' => 1,
+        )
+    ),
+    'language' => 'EN',
+    'ipaddress' => '127.0.0.1',
+    'invoiceDate' => new DateTime('2016-02-16'),
+    'deliveryDate' => new DateTime('2016-06-06'), // in case of tickets for an event, use the event date here
+    'enduser' => array(
+        'initials' => 'T',
+        'lastName' => 'Test',
+        'gender' => 'M',
+        'birthDate' => new DateTime('1990-01-10'),
+        'phoneNumber' => '0612345678',
+        'emailAddress' => 'test@test.nl',
+    ),
+    'address' => array(
+        'streetName' => 'Test',
+        'houseNumber' => '10',
+        'zipCode' => '1234AB',
+        'city' => 'Test',
+        'country' => 'NL',
+    ),
+    'invoiceAddress' => array(
+        'initials' => 'IT',
+        'lastName' => 'ITEST',
+        'streetName' => 'Istreet',
+        'houseNumber' => '70',
+        'zipCode' => '5678CD',
+        'city' => 'ITest',
+        'country' => 'NL',
+    ),
+));
+
+// Save this transactionid and link it to your order
+$transactionId = $result->getTransactionId();
+
+// Redirect the customer to this url to complete the payment
+$redirect = $result->getRedirectUrl();
 ```
