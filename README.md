@@ -313,7 +313,7 @@ $result = \Paynl\Transaction::start(array(
     // optional
     'currency' => 'EUR',
     'exchangeUrl' => Paynl\Helper::getBaseUrl().'/exchange.php',
-    'description' => 'inStore Test :D',
+    'description' => 'Sub Merchant payment',
     'testmode' => 0,
     'extra1' => 'ext1',
     'extra2' => 'ext2',
