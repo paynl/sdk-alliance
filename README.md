@@ -290,7 +290,7 @@ $result = Paynl\Alliance\Invoice::add(array(
     'description' => 'Test invoice', // The description of the invoice
 
     // Optional
-    'invoiceUrl' => 'http://url.to.the/invoice.pdf', // the url to the invoice
+    //'invoiceUrl' => 'http://url.to.the/invoice.pdf', // the url to the invoice
     'makeYesterday' => true // if the invoice needs to be added in today's clearing, set this to true
 ));
 
