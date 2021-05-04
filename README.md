@@ -63,8 +63,8 @@ require_once('path_to/vendor/autoload.php');
 To let the SDK know what your APItoken is, you'll have to register the TokenCode (AT-code belonging to the token) and APItoken as follows:
 
 ```php
-\Paynl\Config::setTokenCode('AT-....-....');
-\Paynl\Config::setApiToken('YOUR_API_TOKEN');
+\Paynl\Config::setTokenCode('AT-####-####');
+\Paynl\Config::setApiToken('****************************************');
 ```
 
 Now you're ready to make some calls
@@ -130,7 +130,7 @@ To check the missing documents, see the code from example 3.
 You can also check the [example](https://github.com/paynl/sdk-alliance/blob/master/samples/uploadDocument.php)
 ```php
 $result = Paynl\Alliance\Document::upload(array(
-      'documentId' => 'D-1234-5678',
+      'documentId' => 'D-####-####',
       'path' => '/path/to/the/file',
       'filename' => 'rekeningAfschrift.pdf' // optional, when you leave this blank, the filename from the path will be used
 	));
@@ -145,7 +145,7 @@ Both files must be of the same type (pdf or image)
 
 ```php
 $result = Paynl\Alliance\Document::upload(array(
-      'documentId' => 'D-1234-5678',
+      'documentId' => 'D-####-####',
       'path' => array('/path/to/the/file', 'path/to/the/second/file'),
       'filename' => 'rekeningAfschrift.pdf' // optional, when you leave this blank, the filename from the path will be used
 	));
@@ -175,7 +175,7 @@ To get a list of the available categories, see step 5
 You can also check the [example](https://github.com/paynl/sdk-alliance/blob/master/samples/addService.php)
 ```php
 $result = Paynl\Alliance\Service::add(array(
-    'merchantId' => 'M-1820-9300',
+    'merchantId' => 'M-####-####',
     'name' => 'Sample Website', 
     'description' => 'Andy Test Add service By Api',
     'categoryId' => 9,// use Paynl\Alliance\Service::getCategories() to get the list of available categories
@@ -191,7 +191,7 @@ $result = Paynl\Alliance\Service::add(array(
 ##### 7. Getting available payment methods
 To get a list of the available payment methods, see the following [example](https://github.com/paynl/sdk-alliance/blob/master/samples/getAvailablePaymentMethods.php)
 ```php
-$paymentOptions = Paynl\Alliance\Service::getAvailablePaymentMethods(array('serviceId' => 'SL-2820-5610'));
+$paymentOptions = Paynl\Alliance\Service::getAvailablePaymentMethods(array('serviceId' => 'SL-####-####'));
 $data = $paymentOptions->getData();
 
 var_dump($data);
@@ -200,7 +200,7 @@ var_dump($data);
 To get a list of the enabled payment methods, use the Paymentmethods::getList() from the [Merchant SDK](https://github.com/paynl/sdk/blob/master/samples/transaction/paymentMethods.php)
 
 ```php
-\Paynl\Config::setServiceId('SL-3490-4320'); 
+\Paynl\Config::setServiceId('SL-####-####'); 
 $paymentMethods = \Paynl\Paymentmethods::getList();
 var_dump($paymentMethods);
 ```
@@ -213,7 +213,7 @@ The Paynl\Alliance\Service::getAvailablePaymentMethods result has a settings arr
 ```php
 
 $success = Paynl\Alliance\Service::enablePaymentMethod(array(
-    'serviceId' => 'SL-2820-5610',
+    'serviceId' => 'SL-####-####',
     'paymentMethodId' => 739,
     'settings' => array( // optional for payment methods that have settings.
         'merchantId' => 1234,
@@ -232,7 +232,7 @@ To disble a payment method, see the following [example](https://github.com/paynl
 
 ```php
 $success = Paynl\Alliance\Service::disablePaymentMethod(array(
-    'serviceId' => 'SL-2820-5610',
+    'serviceId' => 'SL-####-####',
     'paymentMethodId' => 739    
 ));
 
@@ -279,11 +279,11 @@ In order to be able to add an invoice to a merchant, you'll have to set the sett
 See the following [example](https://github.com/paynl/sdk-alliance/blob/master/samples/addInvoice.php)
 
 ```php
-\Paynl\Config::setServiceId('SL-1234-1234');
+\Paynl\Config::setServiceId('SL-####-####');
 
 $result = Paynl\Alliance\Invoice::add(array(
     // Required
-    'merchantId' => 'M-1234-1234', // the id of the merchant
+    'merchantId' => 'M-####-####', // the id of the merchant
     'invoiceId' => 'INV012345', // Your reference number to the invoice
     'amount' => 25.75, // The total amount of the invoice
     'description' => 'Test invoice', // The description of the invoice
