@@ -75,8 +75,6 @@ Now you're ready to make some calls
 
 The full list of functions can be found in the [samples](https://github.com/paynl/sdk-alliance/tree/master/samples) folder.
 
-Here i will try to explain the order of the samples.
-
 ##### 1. Adding a merchant
 Before we can start doing stuff, first we need to have a merchant to work with.
 For a full example of the merchantData, please refer to the [sample](https://github.com/paynl/sdk-alliance/blob/master/samples/addMerchant.php)
@@ -176,13 +174,13 @@ You can also check the [example](https://github.com/paynl/sdk-alliance/blob/mast
 ```php
 $result = Paynl\Alliance\Service::add(array(
     'merchantId' => 'M-####-####',
-    'name' => 'Sample Website', 
-    'description' => 'Andy Test Add service By Api',
+    'name' => 'The name of my sales location tells us what my Sales location is about', 
+    'description' => 'This description describes what people are paying for',
     'categoryId' => 9,// use Paynl\Alliance\Service::getCategories() to get the list of available categories
     'url' => 'http://www.pay.nl',
     'extraUrls' => array(
-        'http://www.admin.pay.nl',
-        'http://www.shop.pay.nl'
+        'http://phpsdk.webshop.pay.nl',
+        'http://sdkalliance.webshop.pay.nl'
     ),
     'alwaysSendExchange' => true // set to false if you only want a notification on successfull payment (not recommended)
 ));
@@ -284,6 +282,7 @@ See the following [example](https://github.com/paynl/sdk-alliance/blob/master/sa
 $result = Paynl\Alliance\Invoice::add(array(
     // Required
     'merchantId' => 'M-####-####', // the id of the merchant
+    'serviceId' => 'SL-####-####', // the serviceid (of the Alliance) to book the payment on
     'invoiceId' => 'INV012345', // Your reference number to the invoice
     'amount' => 25.75, // The total amount of the invoice
     'description' => 'Test invoice', // The description of the invoice
@@ -291,6 +290,10 @@ $result = Paynl\Alliance\Invoice::add(array(
     // Optional
     'invoiceUrl' => 'http://url.to.the/invoice.pdf', // the url to the invoice
     'makeYesterday' => true // if the invoice needs to be added in today's clearing, set this to true
+    'extra1' => 'free variable 1',
+    'extra2' => 'free variable 2',
+    'extra3' => 'free variable 3',
+    "merchantServiceId": "SL-####-####", // the ServiceId of the submerchant that needs to be invoiced  
 ));
 
 $referenceId = $result->referenceId();
