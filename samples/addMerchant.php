@@ -23,6 +23,8 @@ try {
                     'gender' => 'male',
                     'authorisedToSign' => 2,
                     //0 not authorised, 1 authorised independently, 2  shared authority to sign
+                    'placeOfBirth' => 'Testerdam', //The city in which you were born
+                    'dateOfBirth' => '09-09-1999', //The date of birth in the following format: d-m-Y
                     'ubo' => 50, //percentage of shares
                     'hasAccess'=> true, //allow access to the pay.nl admin panel
 //                    'language' => 'nl', //available languages: NL, FR, EN, FL, DE
@@ -35,6 +37,8 @@ try {
                     'gender' => 'female',
                     'authorisedToSign' => 2,
                     //0 not authorised, 1 authorised independently, 2  shared authority to sign
+                    'placeOfBirth' => 'Testerdam', //The city in which you were born
+                    'dateOfBirth' => '09-09-1999', //The date of birth in the following format: d-m-Y
                     'ubo' => 25, //percentage of shares
                     'hasAccess'=> true,
 //                    'language' => 'en',
@@ -47,6 +51,8 @@ try {
                     'gender' => 'female',
                     'authorisedToSign' => 2,
                     //0 not authorised, 1 authorised independently, 2 shared authority to sign
+                    'placeOfBirth' => 'Testerdam', //The city in which you were born
+                    'dateOfBirth' => '09-09-1999', //The date of birth in the following format: d-m-Y
                     'ubo' => 25, //percentage of shares
                     'hasAccess'=> false, //
 //                    'language' => 'de',
@@ -59,6 +65,8 @@ try {
                     'gender' => 'female',
                     'authorisedToSign' => 0,
                     //0 not authorised, 1 authorised independently, 2 shared authority to sign
+                    'placeOfBirth' => 'Testerdam', //The city in which you were born
+                    'dateOfBirth' => '09-09-1999', //The date of birth in the following format: d-m-Y
                     'ubo' => false, //percentage of shares
                     'hasAccess'=> true,
 //                    'language' => 'de',

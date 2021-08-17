@@ -66,12 +66,19 @@ try {
              */
             'retry' => 4,
 
-
             'urls' => array(
                 'http://www.pay.nl/ex',
                 'https://www.pay.nl/ex2',
             )
-        )
+        ),
+        /**
+         *  The scrambled plugin ID which has the following format: PV-0000-0000
+         */
+        'pluginId' => 'PV-0000-0000',
+        /**
+         *  a phone number that customers can use to contact the merchant
+         */
+        'contactPhone' => '1234567890'
     ));
 
     var_dump($result->getServiceId());

@@ -50,6 +50,12 @@ class Service
         if (isset($options['paymentOptions'])) {
             $api->setPaymentOptions($options['paymentOptions']);
         }
+        if (isset($options['pluginId'])) {
+            $api->setPluginId($options['pluginId']);
+        }
+        if (isset($options['contactPhone'])) {
+            $api->setContactPhone($options['contactPhone']);
+        }
 
         $result = $api->doRequest();
 

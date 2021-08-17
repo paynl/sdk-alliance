@@ -31,6 +31,8 @@ class Merchant
      *              'lastname' => 'Last',
      *              'gender' => 'male', // 'male' or 'female'
      *              'authorisedToSign' => 2, //0 not authorised, 1 authorised independently, 2  shared authorized to sign
+     *              'placeOfBirth' => 'Testerdam', //The city in which you were born
+     *              'dateOfBirth' => '09-09-1999', //The date of birth in the following format: d-m-Y
      *              'ubo' => true, // Ultimate beneficial owner (25% of more shares)
      *          ),
      *          array(
@@ -40,6 +42,8 @@ class Merchant
      *              'lastname' => 'Eigenaar',
      *              'gender' => 'female', // 'male' or 'female'
      *              'authorisedToSign' => 2, //0 not authorised, 1 authorised independently, 2  shared authorized to sign
+     *              'placeOfBirth' => 'Testerdam', //The city in which you were born
+     *              'dateOfBirth' => '09-09-1999', //The date of birth in the following format: d-m-Y
      *              'ubo' => true, // Ultimate beneficial owner (25% of more shares)
      *          )
      *       ),
@@ -137,6 +141,14 @@ class Merchant
                 $account['authorizedToSign'] = $account['authorisedToSign'];
             }
 
+            if (!isset($account['placeOfBirth'])) {
+                throw new Required('account - placeOfBirth');
+            }
+
+            if (!isset($account['dateOfBirth'])) {
+                throw new Required('account - dateOfBirth');
+            }
+
             if (!isset($account['ubo'])) {
                 throw new Required('account - ubo');
             }
@@ -153,7 +165,7 @@ class Merchant
             }
             if(isset($account['useCompanyAuth'])){
                 $account['useCompanyAuth'] = (integer) $account['useCompanyAuth'];
-            }
+            }            
 
             $api->addAccount($account);
 

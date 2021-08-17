@@ -13,7 +13,7 @@ use Paynl\Error\Required;
 
 class AddService extends Api
 {
-    protected $version = 3;
+    protected $version = 7;
 
     /**
      * @var string
@@ -44,6 +44,30 @@ class AddService extends Api
      */
     private $_paymentOptions = array();
     private $_exchange;
+    /**
+     * @var string The scrambled plugin ID which has the following format: PV-0000-0000
+     */
+    private $_pluginId;
+     /**
+     * @var string a phone number that customers can use to contact the merchant
+     */
+    private $_contactPhone;
+
+    /**
+     * @param mixed $pluginId
+     */
+    public function setPluginId($pluginId)
+    {
+        $this->_pluginId = $pluginId;
+    }
+
+    /**
+     * @param mixed $contactPhone
+     */
+    public function setContactPhone($contactPhone)
+    {
+        $this->_contactPhone = $contactPhone;
+    }
 
     /**
      * @param mixed $exchange
@@ -149,6 +173,12 @@ class AddService extends Api
         }
         if (isset($this->_exchange)) {
             $this->data['exchange'] = $this->_exchange;
+        }
+        if (isset($this->_pluginId)) {
+            $this->data['pluginId'] = $this->_pluginId;
+        }
+        if (isset($this->_contactPhone)) {
+            $this->data['contactPhone'] = $this->_contactPhone;
         }
 
         return parent::getData();

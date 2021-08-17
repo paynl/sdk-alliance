@@ -1,2 +1,3 @@
 <?php
-\Paynl\Config::setApiToken('YOUR-API-TOKEN');
+\Paynl\Config::setTokenCode('AT-####-####');
+\Paynl\Config::setApiToken('****************************************');
