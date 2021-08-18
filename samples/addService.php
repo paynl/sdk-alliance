@@ -4,14 +4,14 @@ require_once 'config.php';
 
 try {
     $result = Paynl\Alliance\Service::add(array(
-        'merchantId' => 'M-2892-7460',
-        'name' => 'Andy Test',
-        'description' => 'Andy Test Add service By Api',
-        'categoryId' => 9,// use Paynl\Alliance\Service::getCategories() to get the list of available categories
-        'url' => 'http://www.pay.nl',
+        'merchantId' => 'M-1234-1234',
+        'name' => 'My New Service',
+        'description' => 'My New Service description',
+        'categoryId' => 'CY-0000-0000', # See https://admin.pay.nl/data/categories for a list of available category-codes
+        'url' => 'https://www.pay.nl',
         'extraUrls' => array(
-            'http://www.admin.pay.nl',
-            'http://www.shop.pay.nl'
+            'https://www.shop1.pay.nl',
+            'https://www.shop2.pay.nl'
         ),
         /**
          * You can select the payment options that need to be enabled.
@@ -19,16 +19,16 @@ try {
          */
         'paymentOptions' => array(
             array(
-                'id' => 10, //iDEAL
+                'id' => 10, # iDEAL Payment Method
                 'settings' => array(
-                    // ideal doesn't have settings
+                    # iDEAL doesn't have settings
                 ),
             ),
             array(
-                'id' => 739,  // afterpay
+                'id' => 739, # AfterPay
                 'settings' => array(
                     'merchantId' => 1234,
-                    'merchantPassword' => 'p4ssw0rd',
+                    'merchantPassword' => 'merchantPassword',
                     'portefeuilleId' => '1'
                 )
             )
@@ -66,15 +66,15 @@ try {
              */
             'retry' => 4,
 
-
             'urls' => array(
-                'http://www.pay.nl/ex',
+                'https://www.pay.nl/ex',
                 'https://www.pay.nl/ex2',
             )
         )
     ));
 
     var_dump($result->getServiceId());
+
 } catch (Exception $e) {
     echo "Error occurred: " . $e->getMessage();
 }

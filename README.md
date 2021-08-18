@@ -24,11 +24,11 @@
 ---
 
 ### About
-In order to use this SDK, you'll need to have an alliance account at Pay.nl
+In order to use this SDK, you'll need to have an alliance account at PAY.
 
-The alliance will be able to manage sub-merchants, and manage most of the task via the api that normally a merchant would do by logging in in the pay.nl admin.
+The alliance will be able to manage sub-merchants, and manage most of the task via the api that normally a merchant would do by logging in in the PAY. admin.
 
-Also this SDK extends the standard [Pay.nl SDK](https://github.com/paynl/sdk), so all functions from the original SDK are also available.
+Also this SDK extends the standard [PAY. SDK](https://github.com/paynl/sdk), so all functions from the original SDK are also available.
 
 ### Installation
 
@@ -38,7 +38,7 @@ Composer is a tool for dependency management in PHP. It allows you to declare th
 
 For more information on how to use/install composer, please visit: [https://github.com/composer/composer](https://github.com/composer/composer)
 
-To install the Pay.nl PHP SDK-alliance into your project, simply
+To install the PAY. PHP SDK-alliance into your project, simply
 
 	$ composer require paynl/sdk-alliance
 
@@ -47,8 +47,8 @@ To install the Pay.nl PHP SDK-alliance into your project, simply
 Coming soon..
 
 ### Setting up
-To communicate with the API of Pay.nl, you'll need to authenticate.
-Pay.nl uses a token to authenticate you. You can find your token in the pay.nl admin. On the bottom of the [API Tokens](https://admin.pay.nl/company/tokens) page.
+To communicate with the API of PAY., you'll need to authenticate.
+PAY. uses a token to authenticate you. You can find your token in the PAY. admin. On the bottom of the [API Tokens](https://admin.pay.nl/company/tokens) page.
 
 ##### Step 1 the autoloader
 Composer generates an autoloader for your application.
@@ -130,7 +130,7 @@ You can also check the [example](https://github.com/paynl/sdk-alliance/blob/mast
 $result = Paynl\Alliance\Document::upload(array(
       'documentId' => 'D-####-####',
       'path' => '/path/to/the/file',
-      'filename' => 'rekeningAfschrift.pdf' // optional, when you leave this blank, the filename from the path will be used
+      'filename' => 'bankStatement.pdf' // optional, when you leave this blank, the filename from the path will be used
 	));
 
 if($result->success()){
@@ -145,7 +145,7 @@ Both files must be of the same type (pdf or image)
 $result = Paynl\Alliance\Document::upload(array(
       'documentId' => 'D-####-####',
       'path' => array('/path/to/the/file', 'path/to/the/second/file'),
-      'filename' => 'rekeningAfschrift.pdf' // optional, when you leave this blank, the filename from the path will be used
+      'filename' => 'bankStatement.pdf' // optional, when you leave this blank, the filename from the path will be used
 	));
 
 if($result->success()){
