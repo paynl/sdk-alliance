@@ -4,7 +4,6 @@
 
 - [About](#about)
 - [Installation](#installation) 
-- [Installation without composer](#installation-without-composer) 
 - [Setting up](#setting-up)
 	- [1. The autoloader](#step-1-the-autoloader)  
 	- [2. Your API token](#step-2-your-apitoken)
@@ -42,9 +41,6 @@ To install the PAY. PHP SDK-alliance into your project, simply
 
 	$ composer require paynl/sdk-alliance
 
-
-### Installation without composer 
-Coming soon..
 
 ### Setting up
 To communicate with the API of PAY., you'll need to authenticate.
