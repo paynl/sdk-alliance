@@ -47,18 +47,18 @@ class AddService extends Api
     /**
      * @var string The scrambled plugin ID which has the following format: PV-0000-0000
      */
-    private $_pluginId;
+    private $_pluginVersionId;
      /**
      * @var string a phone number that customers can use to contact the merchant
      */
     private $_contactPhone;
 
     /**
-     * @param mixed $pluginId
+     * @param mixed $pluginVersionId
      */
-    public function setPluginId($pluginId)
+    public function setPluginVersionId($pluginVersionId)
     {
-        $this->_pluginId = $pluginId;
+        $this->_pluginVersionId = $pluginVersionId;
     }
 
     /**
@@ -174,8 +174,8 @@ class AddService extends Api
         if (isset($this->_exchange)) {
             $this->data['exchange'] = $this->_exchange;
         }
-        if (isset($this->_pluginId)) {
-            $this->data['pluginId'] = $this->_pluginId;
+        if (isset($this->_pluginVersionId)) {
+            $this->data['pluginVersionId'] = $this->_pluginVersionId;
         }
         if (isset($this->_contactPhone)) {
             $this->data['contactPhone'] = $this->_contactPhone;

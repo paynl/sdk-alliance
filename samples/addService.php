@@ -74,7 +74,7 @@ try {
         /**
          *  The scrambled plugin ID which has the following format: PV-0000-0000
          */
-        'pluginId' => 'PV-0000-0000',
+        'pluginVersionId' => 'PV-0000-0000',
         /**
          *  a phone number that customers can use to contact the merchant
          */
