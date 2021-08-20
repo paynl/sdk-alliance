@@ -5,7 +5,7 @@ require_once 'config.php';
 try {
     $result = \Paynl\Alliance\Merchant::add(
         array(
-            #  Required
+            # Required
             'companyName' => 'subMerchantName',
             'cocNumber' => '54292456',
             'street' => 'streetName',
@@ -46,7 +46,7 @@ try {
                     'firstname' => 'Co',
                     'lastname' => 'Owner1',
                     'gender' => 'female',
-                    'authorisedToSign' => 2,  # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
+                    'authorisedToSign' => 2, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
                     'placeOfBirth' => 'City', 
                     'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => 25, # Percentage of shares
@@ -59,7 +59,7 @@ try {
                     'firstname' => 'Co',
                     'lastname' => 'Owner2',
                     'gender' => 'female',
-                    'authorisedToSign' => 0,  # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
+                    'authorisedToSign' => 0, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
                     'placeOfBirth' => 'City', 
                     'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => false, # Percentage of shares
@@ -83,9 +83,9 @@ try {
             'bankAccountNumber' => 'NL91ABNA0417164300',
             'bankAccountBIC' => 'ABNANL2A',
              # 'vatNumber' => 'NL807960147B01', # Optional, as there is no VAT relation between Pay.nl and submerchant
-            'packageName' => 'Alliance', #  Alliance or AlliancePlus
-             # 'referralProfileId' => 'CP-1234-1234', #  Allows Pay.nl to load settings of company. Only use this if you have
-                                                      #  been provided a code by pay.nl
+            'packageName' => 'Alliance', # Alliance or AlliancePlus
+             # 'referralProfileId' => 'CP-1234-1234', # Allows Pay.nl to load settings of company. Only use this if you have
+                                                      # been provided a code by pay.nl
 
 
             /*
