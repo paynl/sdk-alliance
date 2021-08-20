@@ -45,16 +45,16 @@ class AddService extends Api
     private $_paymentOptions = array();
     private $_exchange;
     /**
-     * @var string The scrambled plugin ID which has the following format: PV-0000-0000
+     * @var string The scrambled plugin version ID which has the following format: PV-0000-0000
      */
     private $_pluginVersionId;
      /**
-     * @var string a phone number that customers can use to contact the merchant
+     * @var string A phone number that customers can use to contact the merchant
      */
     private $_contactPhone;
 
     /**
-     * @param mixed $pluginVersionId
+     * @param string $pluginVersionId
      */
     public function setPluginVersionId($pluginVersionId)
     {
@@ -62,7 +62,7 @@ class AddService extends Api
     }
 
     /**
-     * @param mixed $contactPhone
+     * @param string $contactPhone
      */
     public function setContactPhone($contactPhone)
     {

@@ -72,11 +72,11 @@ try {
             )
         ),
         /**
-         *  The scrambled plugin ID which has the following format: PV-0000-0000
+         *  The scrambled plugin version ID which has the following format: PV-0000-0000
          */
         'pluginVersionId' => 'PV-0000-0000',
         /**
-         *  a phone number that customers can use to contact the merchant
+         *  A phone number that customers can use to contact the merchant
          */
         'contactPhone' => '1234567890'
     ));
