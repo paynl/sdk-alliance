@@ -20,52 +20,52 @@ try {
                     'firstname' => 'Firstname',
                     'lastname' => 'Lastname',
                     'gender' => 'male',
-                    'authorisedToSign' => 2, # 0 =  Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
-                    'placeOfBirth' => 'City', # The city in which you were born
+                    'authorisedToSign' => 2, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
+                    'placeOfBirth' => 'City', 
                     'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => 50, # Percentage of shares
                     'hasAccess' => true, # Allow access to the PAY. admin panel
                      # 'language' => 'nl', # available languages: NL, FR, EN, FL, DE
-                    'useCompanyAuth' => true #  set to true to grant full company rights
+                    'useCompanyAuth' => true # Set to true to grant full company rights
                 ),
                 array(
                     'email' => 'email2@test.nl',
                     'firstname' => 'Co',
                     'lastname' => 'Owner',
                     'gender' => 'female',
-                    'authorisedToSign' => 2, # 0 =  Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
-                    'placeOfBirth' => 'City', # The city in which you were born
+                    'authorisedToSign' => 2, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
+                    'placeOfBirth' => 'City', 
                     'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => 25, # Percentage of shares
                     'hasAccess' => true,
                      # 'language' => 'en',
-                    'useCompanyAuth' => false #  All company rights
+                    'useCompanyAuth' => false # All company rights
                 ),
                 array(
                     'email' => 'email4@test.nl',
                     'firstname' => 'Co',
                     'lastname' => 'Owner1',
                     'gender' => 'female',
-                    'authorisedToSign' => 2,  # 0 =  Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
-                    'placeOfBirth' => 'City', # The city in which you were born
+                    'authorisedToSign' => 2,  # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
+                    'placeOfBirth' => 'City', 
                     'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
-                    'ubo' => 25, # percentage of shares
+                    'ubo' => 25, # Percentage of shares
                     'hasAccess' => false,
                      # 'language' => 'de',
-                    'useCompanyAuth' => false #  All company rights
+                    'useCompanyAuth' => false # All company rights
                 ),
                 array(
                     'email' => 'email5@test.nl',
                     'firstname' => 'Co',
                     'lastname' => 'Owner2',
                     'gender' => 'female',
-                    'authorisedToSign' => 0,  # 0 =  Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
-                    'placeOfBirth' => 'City', # The city in which you were born
+                    'authorisedToSign' => 0,  # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
+                    'placeOfBirth' => 'City', 
                     'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => false, # Percentage of shares
                     'hasAccess'=> true,
                      # 'language' => 'de',
-                    'useCompanyAuth' => false #  All company rights
+                    'useCompanyAuth' => false # All company rights
                 ),
             ),
 
@@ -82,7 +82,7 @@ try {
             'bankAccountOwner' => 'Firstname Lastname',
             'bankAccountNumber' => 'NL91ABNA0417164300',
             'bankAccountBIC' => 'ABNANL2A',
-             # 'vatNumber' => 'NL807960147B01', #  optional, as there is no VAT relation between Pay.nl and submerchant
+             # 'vatNumber' => 'NL807960147B01', # Optional, as there is no VAT relation between Pay.nl and submerchant
             'packageName' => 'Alliance', #  Alliance or AlliancePlus
              # 'referralProfileId' => 'CP-1234-1234', #  Allows Pay.nl to load settings of company. Only use this if you have
                                                       #  been provided a code by pay.nl
@@ -95,7 +95,7 @@ try {
              * This also adds an extra line in the generated contract, granting permission to access the balance
              * and granting access to the Submerchant's account and statistics
              */
-            'settleBalance' => true, #  See above
+            'settleBalance' => true,
             'payoutInterval' => 'week' # Options are: day, week, month or manual by using merchant::addClearing API
         )
     );
