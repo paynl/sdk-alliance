@@ -70,7 +70,15 @@ try {
                 'https://www.pay.nl/ex',
                 'https://www.pay.nl/ex2',
             )
-        )
+        ),
+        /**
+         *  The scrambled plugin version ID which has the following format: PV-0000-0000
+         */
+        'pluginVersionId' => 'PV-0000-0000',
+        /**
+         *  A phone number that customers can use to contact the merchant
+         */
+        'contactPhone' => '1234567890'
     ));
 
     var_dump($result->getServiceId());

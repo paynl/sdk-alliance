@@ -8,7 +8,7 @@ use Paynl\Helper;
 
 class AddMerchant extends Api
 {
-    protected $version = 3;
+    protected $version = 7;
 
     private $merchant;
     private $accounts;

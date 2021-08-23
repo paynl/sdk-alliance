@@ -15,53 +15,58 @@ class Merchant
      * Create a new submerchant.
      * The format of the option array is as follows
      * array(
-     *      // Required
-     *      'companyName' => 'The Name',
+     *      # Required
+     *      'companyName' => 'mechantCompanyName',
      *      'cocNumber' => '123456789',
      *      'street' => 'Street',
-     *      'houseNumber' => '123',
+     *      'houseNumber' => '2',
      *      'postalCode' => '1234 AA',
      *      'city' => 'City',
      *      'accounts' => array(
-     *          // Minimum of 1 account, you can add more, one account must be primary, the other accounts cannot be primary
+     *            # Atleast 1 account is required. You can add more then one. One account must be primary, the other accounts cannot be primary
      *          array(
-     *              'primary' => true, // One account must be primary
+     *              'primary' => true, # One account must be primary
      *              'email' => 'email@test.nl',
-     *              'firstname' => 'First',
-     *              'lastname' => 'Last',
-     *              'gender' => 'male', // 'male' or 'female'
-     *              'authorisedToSign' => 2, //0 not authorised, 1 authorised independently, 2  shared authorized to sign
-     *              'ubo' => true, // Ultimate beneficial owner (25% of more shares)
+     *              'firstname' => 'Firstname',
+     *              'lastname' => 'Lastname',
+     *              'gender' => 'male', # 'male' or 'female'
+     *              'authorisedToSign' => 2, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
+     *              'placeOfBirth' => 'City',
+     *              'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
+     *              'ubo' => true, #  Ultimate beneficial owner (25% of more shares)
      *          ),
      *          array(
      *              'primary' => false,
      *              'email' => 'email2@test.nl',
      *              'firstname' => 'Mede',
      *              'lastname' => 'Eigenaar',
-     *              'gender' => 'female', // 'male' or 'female'
-     *              'authorisedToSign' => 2, //0 not authorised, 1 authorised independently, 2  shared authorized to sign
-     *              'ubo' => true, // Ultimate beneficial owner (25% of more shares)
+     *              'gender' => 'female', # 'male' or 'female'
+     *              'authorisedToSign' => 2, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
+     *              'placeOfBirth' => 'City',
+     *              'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
+     *              'ubo' => true, # Ultimate beneficial owner (25% of more shares)
      *          )
      *       ),
-     *      // Optional
+     *
+     *      # Optional
      *      Do you want to send a registration email to the accounts.
      *      The options are:
      *      0 - No email is sent
      *      1 - The default registration email is sent
      *      2 - The shortened alliance registration email is sent
-     *      'sendEmail' => 1, // see above
+     *      'sendEmail' => 1, # see above
      *      'countryCode' => 'NL',
      *      'bankAccountOwner' => 'Firstname Lastname',
      *      'bankAccountNumber' => 'NL91ABNA0417164300',
      *      'bankAccountBIC' => 'ABNANL2A',
      *      'vatNumber' => 'NL123412413',
-     *      'packageName' => 'Alliance', // Alliance or AlliancePlus
+     *      'packageName' => 'Alliance', # Alliance or AlliancePlus
      *
      *      Set to true if you want to be able to add a debit invoice to the account of this merchant.
      *      Your invoice will be subtracted from the merchants account.
      *      You will need to ask the merchant for permission before you can set this value to true
-     *      'settleBalance' => false, // see above
-     *      'payoutInterval' => 'week' //day, week or month
+     *      'settleBalance' => false, # see above
+     *      'payoutInterval' => 'week' # Options: day, week or month
      *  )
      *
      * @param array $options see Description
@@ -137,6 +142,14 @@ class Merchant
                 $account['authorizedToSign'] = $account['authorisedToSign'];
             }
 
+            if (!isset($account['placeOfBirth'])) {
+                throw new Required('account - placeOfBirth');
+            }
+
+            if (!isset($account['dateOfBirth'])) {
+                throw new Required('account - dateOfBirth');
+            }
+
             if (!isset($account['ubo'])) {
                 throw new Required('account - ubo');
             }
@@ -153,7 +166,7 @@ class Merchant
             }
             if(isset($account['useCompanyAuth'])){
                 $account['useCompanyAuth'] = (integer) $account['useCompanyAuth'];
-            }
+            }            
 
             $api->addAccount($account);
 
