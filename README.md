@@ -165,20 +165,20 @@ In order for a merchant to use our services, The merchant needs to have a servic
 A merchant can have multiple services, normally one for each website.
 Before we can add the website, we have to find out in which category the website should be placed.
 Some paymentmethods are only available for certain categories, so it is important to select the right one.
-To get a list of the available categories, see step 5
-You can also check the [example](https://github.com/paynl/sdk-alliance/blob/master/samples/addService.php)
+To get a list of the available categories, see step 5.
+You can also check this [extended example](https://github.com/paynl/sdk-alliance/blob/master/samples/addService.php)
 ```php
 $result = Paynl\Alliance\Service::add(array(
     'merchantId' => 'M-####-####',
     'name' => 'The name of my sales location tells us what my Sales location is about', 
     'description' => 'This description describes what people are paying for',
-    'categoryId' => 9,// use Paynl\Alliance\Service::getCategories() to get the list of available categories
-    'url' => 'http://www.pay.nl',
+    'categoryId' => 'CY-####-####', # Use Paynl\Alliance\Service::getCategories() to get the list of available categories
+    'url' => 'https://www.pay.nl',
     'extraUrls' => array(
-        'http://phpsdk.webshop.pay.nl',
-        'http://sdkalliance.webshop.pay.nl'
+        'https://phpsdk.webshop.pay.nl',
+        'https://sdkalliance.webshop.pay.nl'
     ),
-    'alwaysSendExchange' => true // set to false if you only want a notification on successfull payment (not recommended)
+    'alwaysSendExchange' => true # Set to false if you only want a notification on successfull payment (not recommended)
 ));
 
 ```
@@ -209,7 +209,7 @@ The Paynl\Alliance\Service::getAvailablePaymentMethods result has a settings arr
 $success = Paynl\Alliance\Service::enablePaymentMethod(array(
     'serviceId' => 'SL-####-####',
     'paymentMethodId' => 739,
-    'settings' => array( // optional for payment methods that have settings.
+    'settings' => array( # Optional for payment methods that have settings.
         'merchantId' => 1234,
         'merchantPassword' => 'p4ssw0rd',
         'portefeuilleId' => '1'
@@ -230,14 +230,14 @@ $success = Paynl\Alliance\Service::disablePaymentMethod(array(
     'paymentMethodId' => 739    
 ));
 
-if($success){
-    // disabled
+if($success) {
+   # Disabled
 }
 ```
 
 ##### 10. Get statistics of your submerchants
 You can get the statistics of your submerchants.
-For example to calculate the amount for the invoice in the next step
+For example to calculate the amount for the invoice in the next step.
 See the following [example](https://github.com/paynl/sdk-alliance/blob/master/samples/getStatistics.php)
 
 You can use the predefined periods
@@ -276,20 +276,21 @@ See the following [example](https://github.com/paynl/sdk-alliance/blob/master/sa
 \Paynl\Config::setServiceId('SL-####-####');
 
 $result = Paynl\Alliance\Invoice::add(array(
-    // Required
-    'merchantId' => 'M-####-####', // the id of the merchant
-    'serviceId' => 'SL-####-####', // the serviceid (of the Alliance) to book the payment on
-    'invoiceId' => 'INV012345', // Your reference number to the invoice
-    'amount' => 25.75, // The total amount of the invoice
-    'description' => 'Test invoice', // The description of the invoice
 
-    // Optional
-    'invoiceUrl' => 'http://url.to.the/invoice.pdf', // the url to the invoice
-    'makeYesterday' => true // if the invoice needs to be added in today's clearing, set this to true
+    # Required
+    'merchantId' => 'M-####-####', # The id of the merchant
+    'serviceId' => 'SL-####-####', # The serviceid (of the Alliance) to book the payment on
+    'invoiceId' => 'INV012345',# Your reference number to the invoice
+    'amount' => 25.75, # The total amount of the invoice
+    'description' => 'Test invoice', # The description of the invoice
+
+    # Optional
+    'invoiceUrl' => 'https://url.to.the/invoice.pdf', # The url to the invoice
+    'makeYesterday' => true # If the invoice needs to be added in today's clearing, set this to true
     'extra1' => 'free variable 1',
     'extra2' => 'free variable 2',
     'extra3' => 'free variable 3',
-    "merchantServiceId": "SL-####-####", // the ServiceId of the submerchant that needs to be invoiced  
+    "merchantServiceId": "SL-####-####", # The ServiceId of the submerchant that needs to be invoiced  
 ));
 
 $referenceId = $result->referenceId();
