@@ -111,7 +111,7 @@ You can of course also get the details of a single merchant. See also this [exam
 ```php
 $merchant = Paynl\Alliance\Merchant::get(array('merchantId' => 'M-1820-9300'));
 
-// documents that still need to be uploaded (for the next example)
+# Documents that still need to be uploaded (for the next example)
 $documents = $merchant->getMissingDocuments();
 
 var_dump($documents);
