@@ -129,7 +129,7 @@ $result = Paynl\Alliance\Document::upload(array(
       'filename' => 'bankStatement.pdf' # Optional, when you leave this blank, the filename from the path will be used
 	));
 
-if($result->success()){
+if ($result->success()) {
 }
 
 ```
@@ -144,7 +144,7 @@ $result = Paynl\Alliance\Document::upload(array(
       'filename' => 'bankStatement.pdf' # Optional, when you leave this blank, the filename from the path will be used
 	));
 
-if($result->success()){
+if ($result->success()) {
 }
 
 ```
@@ -216,8 +216,8 @@ $success = Paynl\Alliance\Service::enablePaymentMethod(array(
     )
 ));
 
-if($success){
-    // enabled
+if($success) {
+    # Enabled
 }
 ```
 
