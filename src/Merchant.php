@@ -215,16 +215,6 @@ class Merchant
         }
         $merchant['countryCode'] = $options['countryCode'];
 
-        if (!isset($options['contactEmail'])) {
-            throw new Required('contactEmail');
-        }
-        $merchant['contactEmail'] = $options['contactEmail'];
-
-        if (!isset($options['contactPhone'])) {
-            throw new Required('contactPhone');
-        }
-        $merchant['contactPhone'] = $options['contactPhone'];
-
         /**
          * Optional
          */
@@ -233,6 +223,12 @@ class Merchant
         }
         if (isset($options['houseNumberAddition'])) {
             $merchant['houseNumberAddition'] = $options['houseNumberAddition'];
+        }
+        if (!isset($options['contactEmail'])) {
+            $merchant['contactEmail'] = $options['contactEmail'];
+        }
+        if (!isset($options['contactPhone'])) {
+            $merchant['contactPhone'] = $options['contactPhone'];
         }
         return $merchant;
     }
