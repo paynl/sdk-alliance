@@ -223,7 +223,7 @@ class Merchant
         if (!isset($options['contactPhone'])) {
             throw new Required('contactPhone');
         }
-        $merchant['contactPhone	'] = $options['contactPhone'];
+        $merchant['contactPhone'] = $options['contactPhone'];
 
         /**
          * Optional
