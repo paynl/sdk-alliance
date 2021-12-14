@@ -224,6 +224,12 @@ class Merchant
         if (isset($options['houseNumberAddition'])) {
             $merchant['houseNumberAddition'] = $options['houseNumberAddition'];
         }
+        if (isset($options['contactEmail'])) {
+            $merchant['contactEmail'] = $options['contactEmail'];
+        }
+        if (isset($options['contactPhone'])) {
+            $merchant['contactPhone'] = $options['contactPhone'];
+        }
         return $merchant;
     }
 

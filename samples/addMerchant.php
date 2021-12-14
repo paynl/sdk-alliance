@@ -87,6 +87,9 @@ try {
              # 'referralProfileId' => 'CP-1234-1234', # Allows Pay.nl to load settings of company. Only use this if you have
                                                       # been provided a code by pay.nl
 
+            'contactPhone' => '0699999999', # The phone number Pay.nl uses for contacting
+            'contactEmail' => 'info@example.ex', # The email address Pay.nl uses for contacting
+
 
             /*
              * Set to true if you want to be able to debit the balance of this merchant.
