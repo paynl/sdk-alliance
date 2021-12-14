@@ -215,6 +215,16 @@ class Merchant
         }
         $merchant['countryCode'] = $options['countryCode'];
 
+        if (!isset($options['contactEmail'])) {
+            throw new Required('contactEmail');
+        }
+        $merchant['contactEmail'] = $options['contactEmail'];
+
+        if (!isset($options['contactPhone'])) {
+            throw new Required('contactPhone');
+        }
+        $merchant['contactPhone	'] = $options['contactPhone'];
+
         /**
          * Optional
          */
