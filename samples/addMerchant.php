@@ -96,7 +96,7 @@ try {
              * and granting access to the Submerchant's account and statistics
              */
             'settleBalance' => true,
-            'payoutInterval' => 'week' # Options are: day, week, month or manual by using merchant::addClearing API
+            'clearingInterval' => 'week' # Options are: day, week, month or manual by using merchant::addClearing API
         )
     );
 
