@@ -13,7 +13,7 @@ use Paynl\Error\Required;
 
 class AddBankAccount extends Api
 {
-    protected $version = 4;
+    protected $version = 7;
 
     protected $apiTokenRequired = true;
     protected $serviceIdRequired = false;
