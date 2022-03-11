@@ -24,6 +24,10 @@ class Suspend extends Api
         $this->merchantId = $merchantId;
     }
 
+    /**
+     * @return array
+     * @throws Error\Required
+     */
     protected function getData()
     {
         if (empty($this->merchantId)) {
@@ -34,7 +38,11 @@ class Suspend extends Api
         return parent::getData();
     }
 
-
+    /**
+     * @param null|string $endpoint
+     * @param null|int $version
+     * @return array
+     */
     public function doRequest($endpoint = null, $version = null)
     {
         return parent::doRequest('Alliance/suspend');

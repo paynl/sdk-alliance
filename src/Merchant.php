@@ -320,6 +320,7 @@ class Merchant
     
     /**
      * @param $options
+     * @return bool
      */
     public static function suspend($options = array())
     {
@@ -331,6 +332,6 @@ class Merchant
 
         $result = $api->doRequest();
 
-        return $result['result'];
+        return isset($result['result']) ? $result['result'] : false;
     }
 }
