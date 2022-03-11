@@ -317,4 +317,20 @@ class Merchant
 
         return $result['issuerUrl'];
     }
+    
+    /**
+     * @param $options
+     */
+    public static function suspend($options = array())
+    {
+        $api = new Api\Suspend();
+
+        if (isset($options['merchantId'])) {
+            $api->setMerchantId($options['merchantId']);
+        }
+
+        $result = $api->doRequest();
+
+        return $result['result'];
+    }
 }
