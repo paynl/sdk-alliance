@@ -299,6 +299,7 @@ class Merchant
 
     /**
      * @param $options
+     * @return string
      */
     public static function addBankAccount($options = array()){
         $api = new Api\AddBankAccount();
