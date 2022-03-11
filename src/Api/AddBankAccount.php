@@ -67,7 +67,10 @@ class AddBankAccount extends Api
         $this->paymentOptionId = $paymentOptionId;
     }
 
-
+    /**
+     * @return array
+     * @throws Error\Required
+     */
     protected function getData()
     {
         if(empty($this->merchantId)){
@@ -93,7 +96,11 @@ class AddBankAccount extends Api
         return parent::getData();
     }
 
-
+    /**
+     * @param null|string $endpoint
+     * @param null|int $version
+     * @return array
+     */
     public function doRequest($endpoint = null, $version = null)
     {
         return parent::doRequest('Alliance/addBankaccount');

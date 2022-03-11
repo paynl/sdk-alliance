@@ -318,6 +318,6 @@ class Merchant
 
         $result = $api->doRequest();
 
-        return $result['issuerUrl'];
+        return isset($result['issuerUrl']) ? $result['issuerUrl'] : 'issuerUrl not found.';
     }
 }
