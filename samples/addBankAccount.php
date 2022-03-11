@@ -6,7 +6,8 @@ require_once 'config.php';
 $issuerUrl = \Paynl\Alliance\Merchant::addBankAccount(array(
     'merchantId' => 'M-1234-5678', //The id of the merchant
     'returnUrl' => 'http://www.youradmin.com', //After payment we redirect to this url
-    'bankId' => 1 // optional, the ideal bankid use \Paynl\Paymentmethods::getBanks() to get the list of banks
+    'bankId' => 1, // optional, the ideal bankid use \Paynl\Paymentmethods::getBanks() to get the list of banks
+    'paymentOptionId' => 10 // optional, the ID of the payment profile (standard iDEAL)
 ));
 
 

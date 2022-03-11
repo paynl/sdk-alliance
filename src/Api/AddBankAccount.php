@@ -30,6 +30,10 @@ class AddBankAccount extends Api
      * @var int Optional, the bankid, if you omit this, we will ask the user for the bank
      */
     protected $bankId;
+    /**
+     * @var int Optional, the ID of the payment profile (standard iDEAL).
+     */
+    protected $paymentOptionId;
 
     /**
      * @param string $merchantId
@@ -55,6 +59,13 @@ class AddBankAccount extends Api
         $this->bankId = $bankId;
     }
 
+    /**
+     * @param int $paymentOptionId
+     */
+    public function setPaymentOptionId($paymentOptionId)
+    {
+        $this->paymentOptionId = $paymentOptionId;
+    }
 
 
     protected function getData()
@@ -73,6 +84,10 @@ class AddBankAccount extends Api
 
         if(!empty($this->bankId)) {
             $this->data['bankId'] = $this->bankId;
+        }
+
+        if (!empty($this->paymentOptionId)) {
+            $this->data['paymentOptionId'] = $this->paymentOptionId;
         }
 
         return parent::getData();

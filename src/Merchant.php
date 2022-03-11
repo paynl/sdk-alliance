@@ -312,6 +312,9 @@ class Merchant
         if(isset($options['bankId'])){
             $api->setBankId($options['bankId']);
         }
+        if (isset($options['paymentOptionId'])) {
+            $api->setPaymentOptionId($options['paymentOptionId']);
+        }
 
         $result = $api->doRequest();
 
