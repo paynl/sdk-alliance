@@ -299,6 +299,7 @@ class Merchant
 
     /**
      * @param $options
+     * @return string
      */
     public static function addBankAccount($options = array()){
         $api = new Api\AddBankAccount();
@@ -312,9 +313,12 @@ class Merchant
         if(isset($options['bankId'])){
             $api->setBankId($options['bankId']);
         }
+        if (isset($options['paymentOptionId'])) {
+            $api->setPaymentOptionId($options['paymentOptionId']);
+        }
 
         $result = $api->doRequest();
 
-        return $result['issuerUrl'];
+        return isset($result['issuerUrl']) ? $result['issuerUrl'] : 'issuerUrl not found.';
     }
 }

@@ -13,7 +13,7 @@ use Paynl\Error\Required;
 
 class AddBankAccount extends Api
 {
-    protected $version = 4;
+    protected $version = 7;
 
     protected $apiTokenRequired = true;
     protected $serviceIdRequired = false;
@@ -30,6 +30,10 @@ class AddBankAccount extends Api
      * @var int Optional, the bankid, if you omit this, we will ask the user for the bank
      */
     protected $bankId;
+    /**
+     * @var int Optional, the ID of the payment profile (standard iDEAL).
+     */
+    protected $paymentOptionId;
 
     /**
      * @param string $merchantId
@@ -55,8 +59,18 @@ class AddBankAccount extends Api
         $this->bankId = $bankId;
     }
 
+    /**
+     * @param int $paymentOptionId
+     */
+    public function setPaymentOptionId($paymentOptionId)
+    {
+        $this->paymentOptionId = $paymentOptionId;
+    }
 
-
+    /**
+     * @return array
+     * @throws Error\Required
+     */
     protected function getData()
     {
         if(empty($this->merchantId)){
@@ -75,10 +89,18 @@ class AddBankAccount extends Api
             $this->data['bankId'] = $this->bankId;
         }
 
+        if (!empty($this->paymentOptionId)) {
+            $this->data['paymentOptionId'] = $this->paymentOptionId;
+        }
+
         return parent::getData();
     }
 
-
+    /**
+     * @param null|string $endpoint
+     * @param null|int $version
+     * @return array
+     */
     public function doRequest($endpoint = null, $version = null)
     {
         return parent::doRequest('Alliance/addBankaccount');
