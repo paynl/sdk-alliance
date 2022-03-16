@@ -321,4 +321,21 @@ class Merchant
 
         return isset($result['issuerUrl']) ? $result['issuerUrl'] : 'issuerUrl not found.';
     }
+    
+    /**
+     * @param $options
+     * @return bool
+     */
+    public static function suspend($options = array())
+    {
+        $api = new Api\Suspend();
+
+        if (isset($options['merchantId'])) {
+            $api->setMerchantId($options['merchantId']);
+        }
+
+        $result = $api->doRequest();
+
+        return isset($result['result']) ? $result['result'] : false;
+    }
 }
