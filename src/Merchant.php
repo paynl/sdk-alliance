@@ -338,4 +338,21 @@ class Merchant
 
         return isset($result['result']) ? $result['result'] : false;
     }
+
+    /**
+     * @param $options
+     * @return array
+     */
+    public static function markReady($options = array())
+    {
+        $api = new Api\MarkReady();
+
+        if (isset($options['merchantId'])) {
+            $api->setMerchantId($options['merchantId']);
+        }
+
+        $result = $api->doRequest();
+
+        return $result;
+    }
 }
