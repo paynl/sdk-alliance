@@ -353,6 +353,6 @@ class Merchant
 
         $result = $api->doRequest();
 
-        return $result;
+        return ($result['request']['result'] == 1) ? $result['request']['result'] : false;
     }
 }
