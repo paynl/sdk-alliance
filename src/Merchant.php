@@ -341,7 +341,7 @@ class Merchant
 
     /**
      * @param $options
-     * @return array
+     * @return bool
      */
     public static function markReady($options = array())
     {
@@ -353,6 +353,6 @@ class Merchant
 
         $result = $api->doRequest();
 
-        return ($result['request']['result'] == 1) ? $result['request']['result'] : false;
+        return ($result['request']['result'] == 1);
     }
 }
