@@ -37,9 +37,11 @@ class MarkReady extends Api
     }
 
     /**
+     * @param $endpoint
+     * @param $version
      * @return mixed
      */
-    public function doRequest()
+    public function doRequest($endpoint = null, $version = null)
     {
         return parent::doRequest('Merchant/markReady');
     }
