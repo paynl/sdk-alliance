@@ -142,14 +142,6 @@ class Merchant
                 $account['authorizedToSign'] = $account['authorisedToSign'];
             }
 
-            if (!isset($account['placeOfBirth'])) {
-                throw new Required('account - placeOfBirth');
-            }
-
-            if (!isset($account['dateOfBirth'])) {
-                throw new Required('account - dateOfBirth');
-            }
-
             if (!isset($account['ubo'])) {
                 throw new Required('account - ubo');
             }
