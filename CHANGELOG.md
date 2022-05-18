@@ -3,6 +3,6 @@
 # PHP SDK  Changelog #
 ## Release 1.3.0
 * Changes in addMerchant:
-- placeOfBirth no longer required in accounts
-- dateOfBirth no longer required in accounts
-- Updated sample
+  - placeOfBirth no longer required in accounts
+  - dateOfBirth no longer required in accounts
+* Updated sample
