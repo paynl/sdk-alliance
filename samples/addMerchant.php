@@ -16,56 +16,68 @@ try {
             'accounts' => array(
                 # Atleast 1 account is required. You can add more then one. One account must be primary, the other accounts cannot be primary
                 array(
+                    # Required
                     'email' => 'email@test.nl',
                     'firstname' => 'Firstname',
                     'lastname' => 'Lastname',
                     'gender' => 'male',
                     'authorisedToSign' => 2, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
-                    'placeOfBirth' => 'City', 
-                    'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => 50, # Percentage of shares
                     'hasAccess' => true, # Allow access to the PAY. admin panel
-                     # 'language' => 'nl', # available languages: NL, FR, EN, FL, DE
-                    'useCompanyAuth' => true # Set to true to grant full company rights
+                    'useCompanyAuth' => true, # Set to true to grant full company rights
+
+                    #  Optional
+                    'placeOfBirth' => 'City', #
+                    'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
+                    'language' => 'NL' # available languages: NL, FR, EN, FL, DE
                 ),
                 array(
+                    # Required
                     'email' => 'email2@test.nl',
                     'firstname' => 'Co',
                     'lastname' => 'Owner',
                     'gender' => 'female',
                     'authorisedToSign' => 2, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
-                    'placeOfBirth' => 'City', 
-                    'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => 25, # Percentage of shares
                     'hasAccess' => true,
-                     # 'language' => 'en',
-                    'useCompanyAuth' => false # All company rights
+                    'useCompanyAuth' => false, # All company rights
+
+                    #  Optional
+                    'placeOfBirth' => 'City', #
+                    'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
+                    'language' => 'EN' # available languages: NL, FR, EN, FL, DE
                 ),
                 array(
+                    # Required
                     'email' => 'email4@test.nl',
                     'firstname' => 'Co',
                     'lastname' => 'Owner1',
                     'gender' => 'female',
                     'authorisedToSign' => 2, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
-                    'placeOfBirth' => 'City', 
-                    'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => 25, # Percentage of shares
                     'hasAccess' => false,
-                     # 'language' => 'de',
-                    'useCompanyAuth' => false # All company rights
+                    'useCompanyAuth' => false, # All company rights
+
+                    #  Optional
+                    'placeOfBirth' => 'City', #
+                    'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
+                    'language' => 'DE' # available languages: NL, FR, EN, FL, DE
                 ),
                 array(
+                    # Required
                     'email' => 'email5@test.nl',
                     'firstname' => 'Co',
                     'lastname' => 'Owner2',
                     'gender' => 'female',
                     'authorisedToSign' => 0, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
-                    'placeOfBirth' => 'City', 
-                    'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => false, # Percentage of shares
                     'hasAccess'=> true,
-                     # 'language' => 'de',
-                    'useCompanyAuth' => false # All company rights
+                    'useCompanyAuth' => false, # All company rights
+
+                    #  Optional
+                    'placeOfBirth' => 'City', #
+                    'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
+                    'language' => 'FR' # available languages: NL, FR, EN, FL, DE
                 ),
             ),
 
