@@ -5,7 +5,7 @@ require_once 'config.php';
 try {
     $merchant = Paynl\Alliance\Merchant::get(array(
         # Required
-        'merchantId' => 'M-1820-9300'
+        'merchantId' => 'M-1234-5678'
     ));
 
     # documents that still need to be uploaded
