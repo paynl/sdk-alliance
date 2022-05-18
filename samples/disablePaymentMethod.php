@@ -4,10 +4,14 @@ require_once 'config.php';
 
 try {
     $success = Paynl\Alliance\Service::disablePaymentMethod(array(
-        'serviceId' => 'SL-2820-5610',
+        # Required
+        'serviceId' => 'SL-1234-5678',
         'paymentMethodId' => 739
     ));
+
+    if ($success) {
+        // disabling succeeded
+    }
 } catch (Exception $e) {
     echo "Error occurred: " . $e->getMessage();
 }
-

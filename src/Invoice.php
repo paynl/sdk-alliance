@@ -63,6 +63,18 @@ class Invoice
         } else {
             $api->setMakeYesterday(false);
         }
+        if(isset($options['extra1'])){
+            $api->setExtra1($options['extra1']);
+        }
+        if(isset($options['extra2'])){
+            $api->setExtra2($options['extra2']);
+        }
+        if(isset($options['extra3'])){
+            $api->setExtra3($options['extra3']);
+        }
+        if(isset($options['merchantServiceId'])){
+            $api->setMerchantServiceId($options['merchantServiceId']);
+        }
 
         $result = $api->doRequest();
 

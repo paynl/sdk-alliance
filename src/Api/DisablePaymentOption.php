@@ -15,7 +15,7 @@ use Paynl\Helper;
 
 class DisablePaymentOption extends Api
 {
-    protected $version = 3;
+    protected $version = 4;
 
     protected $serviceId = null;
     protected $paymentProfileId = null;

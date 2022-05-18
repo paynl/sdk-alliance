@@ -14,11 +14,13 @@ use Paynl\Helper;
 
 class GetMerchants extends Api
 {
+
+    protected $version = 7;
+
     /**
      * @var sting new, accepted or deleted
      */
     private $_state;
-
 
     /**
      * @param sting $state
@@ -30,7 +32,6 @@ class GetMerchants extends Api
         }
         $this->_state = $state;
     }
-
 
     protected function getData()
     {

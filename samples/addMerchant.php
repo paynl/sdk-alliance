@@ -21,11 +21,11 @@ try {
                     'lastname' => 'Lastname',
                     'gender' => 'male',
                     'authorisedToSign' => 2, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
-                    'placeOfBirth' => 'City', 
+                    'placeOfBirth' => 'City',
                     'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => 50, # Percentage of shares
                     'hasAccess' => true, # Allow access to the PAY. admin panel
-                     # 'language' => 'nl', # available languages: NL, FR, EN, FL, DE
+                    # 'language' => 'nl', # available languages: NL, FR, EN, FL, DE
                     'useCompanyAuth' => true # Set to true to grant full company rights
                 ),
                 array(
@@ -34,11 +34,11 @@ try {
                     'lastname' => 'Owner',
                     'gender' => 'female',
                     'authorisedToSign' => 2, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
-                    'placeOfBirth' => 'City', 
+                    'placeOfBirth' => 'City',
                     'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => 25, # Percentage of shares
                     'hasAccess' => true,
-                     # 'language' => 'en',
+                    # 'language' => 'en',
                     'useCompanyAuth' => false # All company rights
                 ),
                 array(
@@ -47,11 +47,11 @@ try {
                     'lastname' => 'Owner1',
                     'gender' => 'female',
                     'authorisedToSign' => 2, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
-                    'placeOfBirth' => 'City', 
+                    'placeOfBirth' => 'City',
                     'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => 25, # Percentage of shares
                     'hasAccess' => false,
-                     # 'language' => 'de',
+                    # 'language' => 'de',
                     'useCompanyAuth' => false # All company rights
                 ),
                 array(
@@ -60,11 +60,11 @@ try {
                     'lastname' => 'Owner2',
                     'gender' => 'female',
                     'authorisedToSign' => 0, # 0 = Not authorised, 1 = Authorised independently, 2 = Shared authority to sign
-                    'placeOfBirth' => 'City', 
+                    'placeOfBirth' => 'City',
                     'dateOfBirth' => '09-09-1999', # The date of birth in the following format: d-m-Y
                     'ubo' => false, # Percentage of shares
-                    'hasAccess'=> true,
-                     # 'language' => 'de',
+                    'hasAccess' => true,
+                    # 'language' => 'de',
                     'useCompanyAuth' => false # All company rights
                 ),
             ),
@@ -82,10 +82,10 @@ try {
             'bankAccountOwner' => 'Firstname Lastname',
             'bankAccountNumber' => 'NL91ABNA0417164300',
             'bankAccountBIC' => 'ABNANL2A',
-             # 'vatNumber' => 'NL807960147B01', # Optional, as there is no VAT relation between Pay.nl and submerchant
+            # 'vatNumber' => 'NL807960147B01', # Optional, as there is no VAT relation between Pay.nl and submerchant
             'packageName' => 'Alliance', # Alliance or AlliancePlus
-             # 'referralProfileId' => 'CP-1234-1234', # Allows Pay.nl to load settings of company. Only use this if you have
-                                                      # been provided a code by pay.nl
+            # 'referralProfileId' => 'CP-1234-1234', # Allows Pay.nl to load settings of company. Only use this if you have
+            # been provided a code by pay.nl
 
 
             /*

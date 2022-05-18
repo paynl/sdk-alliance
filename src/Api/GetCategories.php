@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: andy
@@ -14,7 +15,20 @@ use Paynl\Helper;
 
 class GetCategories extends Api
 {
-    protected $version = 1;
+    protected $version = 4;
+
+    /**
+     * @var string The paymentOptionId
+     */
+    protected $paymentOptionId ;
+
+    /**
+     * @param int\null $paymentOptionId
+     */
+    public function setPaymentOptionId($paymentOptionId)
+    {
+        $this->paymentOptionId = $paymentOptionId;
+    }
 
     protected function processResult($result)
     {
@@ -24,6 +38,14 @@ class GetCategories extends Api
             throw new ApiError($output);
         }
         return $output;
+    }
+
+    public function getData()
+    {
+        if (isset($this->paymentOptionId)) {
+            $this->data['paymentOptionId'] = $this->paymentOptionId;
+        }
+        return parent::getData();
     }
 
     public function doRequest($endpoint = null, $version = null)

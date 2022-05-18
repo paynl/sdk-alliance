@@ -31,8 +31,8 @@ class Service
         if (isset($options['categoryId'])) {
             $api->setCategoryId($options['categoryId']);
         }
-        if (isset($options['url'])) {
-            $api->setPublication($options['url']);
+        if (isset($options['publication'])) {
+            $api->setPublication($options['publication']);
         }
 
         $exchange = [];
@@ -44,19 +44,19 @@ class Service
         }
         $api->setExchange($exchange);
 
-        if (isset($options['extraUrls'])) {
-            $api->setPublicationUrls($options['extraUrls']);
+        if (isset($options['publicationUrls'])) {
+            $api->setPublicationUrls($options['publicationUrls']);
         }
         if (isset($options['paymentOptions'])) {
             $api->setPaymentOptions($options['paymentOptions']);
-        }
+        }       
         if (isset($options['pluginVersionId'])) {
             $api->setPluginVersionId($options['pluginVersionId']);
-        }
+        }        
         if (isset($options['contactPhone'])) {
             $api->setContactPhone($options['contactPhone']);
         }
-
+        
         $result = $api->doRequest();
 
         return new Result\Service\Add($result);
@@ -71,6 +71,9 @@ class Service
     public static function getCategories($options = array())
     {
         $api = new Api\GetCategories();
+        if(isset($options['paymentOptionId'])){
+            $api->setPaymentOptionId($options['paymentOptionId']);
+        }
         $result = $api->doRequest();
 
         return new Result\Service\GetCategories($result);
