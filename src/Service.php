@@ -71,7 +71,7 @@ class Service
     public static function getCategories($options = array())
     {
         $api = new Api\GetCategories();
-        if(isset($options['paymentOptionId'])){
+        if (isset($options['paymentOptionId'])) {
             $api->setPaymentOptionId($options['paymentOptionId']);
         }
         $result = $api->doRequest();

@@ -143,51 +143,51 @@ class AddInvoice extends Api
 
     protected function getData()
     {
-        if(empty($this->merchantId)){
+        if (empty($this->merchantId)) {
             throw new Required('merchantId');
         } else {
             $this->data['merchantId'] = $this->merchantId;
         }
 
-        if(empty($this->invoiceId)){
+        if (empty($this->invoiceId)) {
             throw new Required('invoiceId');
         } else {
             $this->data['invoiceId'] = $this->invoiceId;
         }
 
-        if(empty($this->amount)){
+        if (empty($this->amount)) {
             throw new Required('amount');
         } else {
             $this->data['amount'] = $this->amount;
         }
 
-        if(empty($this->description)){
+        if (empty($this->description)) {
             throw new Required('description');
         } else {
             $this->data['description'] = $this->description;
         }
 
-        if(isset($this->invoiceUrl)){
+        if (isset($this->invoiceUrl)) {
             $this->data['invoiceUrl'] = $this->invoiceUrl;
         }
 
-        if(isset($this->makeYesterday)){
+        if (isset($this->makeYesterday)) {
             $this->data['makeYesterday'] = (bool)$this->makeYesterday;
         }
 
-        if(isset($this->extra1)){
+        if (isset($this->extra1)) {
             $this->data['extra1'] = $this->extra1;
         }
 
-        if(isset($this->extra2)){
+        if (isset($this->extra2)) {
             $this->data['extra2'] = $this->extra2;
         }
 
-        if(isset($this->extra3)){
+        if (isset($this->extra3)) {
             $this->data['extra3'] = $this->extra3;
         }
 
-        if(isset($this->merchantServiceId)){
+        if (isset($this->merchantServiceId)) {
             $this->data['merchantServiceId'] = $this->merchantServiceId;
         }
 
