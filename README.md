@@ -1,4 +1,4 @@
-# Paynl PHP SDK-Alliance
+# PAY. PHP SDK-Alliance
 
 ---
 
