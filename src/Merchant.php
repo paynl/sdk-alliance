@@ -293,7 +293,8 @@ class Merchant
      * @param $options
      * @return string
      */
-    public static function addBankAccount($options = array()){
+    public static function addBankAccount($options = array())
+    {
         $api = new Api\AddBankAccount();
 
         if(isset($options['merchantId'])){
@@ -329,5 +330,22 @@ class Merchant
         $result = $api->doRequest();
 
         return isset($result['result']) ? $result['result'] : false;
+    }
+
+    /**
+     * @param $options
+     * @return bool
+     */
+    public static function markReady($options = array())
+    {
+        $api = new Api\MarkReady();
+
+        if (isset($options['merchantId'])) {
+            $api->setMerchantId($options['merchantId']);
+        }
+
+        $result = $api->doRequest();
+
+        return !empty($result['request']['result']);
     }
 }
