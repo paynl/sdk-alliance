@@ -9,7 +9,7 @@ try {
             'merchantId' => 'M-1234-5678',
             'name' => 'My New Service', # The name of the service
             'description' => 'My New Service description', # Description of the service. It is important to be as acurate as possible.
-            'categoryId' => 'CY-1234-5678', # See https://admin.pay.nl/data/categories for a list of available category-codes
+            'categoryId' => 'CY-2010-6000', # See https://admin.pay.nl/data/categories for a list of available category-codes
             /**
              * You can select the payment options that need to be enabled.
              * If you don't supply any payment methods, all available payment methods will be enabled
@@ -75,8 +75,8 @@ try {
                     'https://www.pay.nl/ex2',
                 )
             ),
-            'pluginVersionId' => 'PV-1234-5678', # The scrambled plugin version ID which has the following format: PV-0000-0000            
-            'contactPhone' => '1234567890', # A phone number that customers can use to contact the merchant
+            // 'pluginVersionId' => 'PV-1234-5678', # The scrambled plugin version ID which has the following format: PV-0000-0000            
+            // 'contactPhone' => '1234567890', # A phone number that customers can use to contact the merchant
         )
     );
 
