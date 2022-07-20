@@ -14,6 +14,8 @@ use Paynl\Helper;
 
 class GetMerchant extends Api
 {
+    protected $version = 7;
+
     /**
      * @var sting
      */

@@ -3,10 +3,12 @@ require_once '../vendor/autoload.php';
 require_once 'config.php';
 
 try {
-
     $success = Paynl\Alliance\Service::enablePaymentMethod(array(
-        'serviceId' => 'SL-2820-5610',
+        # Required
+        'serviceId' => 'SL-1234-5678',
         'paymentMethodId' => 739,
+
+        # Optional
         'settings' => array(
             'merchantId' => 1234,
             'merchantPassword' => 'p4ssw0rd',
@@ -14,10 +16,9 @@ try {
         )
     ));
 
-    if($success){
+    if ($success) {
         // enabling succeeded
     }
 } catch (Exception $e) {
     echo "Error occurred: " . $e->getMessage();
 }
-

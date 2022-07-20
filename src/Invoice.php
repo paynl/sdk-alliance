@@ -32,36 +32,49 @@ class Invoice
      * @param array $options See above
      * @throws Required
      */
-    public static function add($options = array()){
+    public static function add($options = array())
+    {
         $api = new Api\AddInvoice();
 
-        if(empty($options['merchantId'])){
+        if (empty($options['merchantId'])) {
             throw new Required('merchantId');
         } else {
             $api->setMerchantId($options['merchantId']);
         }
-        if(empty($options['invoiceId'])){
+        if (empty($options['invoiceId'])) {
             throw new Required('invoiceId');
         } else {
             $api->setInvoiceId($options['invoiceId']);
         }
-        if(empty($options['amount'])){
+        if (empty($options['amount'])) {
             throw new Required('amount');
         } else {
-            $api->setAmount(round($options['amount']*100));
+            $api->setAmount(round($options['amount'] * 100));
         }
-        if(empty($options['description'])){
+        if (empty($options['description'])) {
             throw new Required('description');
         } else {
             $api->setDescription($options['description']);
         }
-        if(isset($options['invoiceUrl'])){
+        if (isset($options['invoiceUrl'])) {
             $api->setInvoiceUrl($options['invoiceUrl']);
         }
-        if(isset($options['makeYesterday']) && $options['makeYesterday'] == true){
+        if (isset($options['makeYesterday']) && $options['makeYesterday'] == true) {
             $api->setMakeYesterday(true);
         } else {
             $api->setMakeYesterday(false);
+        }
+        if (isset($options['extra1'])) {
+            $api->setExtra1($options['extra1']);
+        }
+        if (isset($options['extra2'])) {
+            $api->setExtra2($options['extra2']);
+        }
+        if (isset($options['extra3'])) {
+            $api->setExtra3($options['extra3']);
+        }
+        if (isset($options['merchantServiceId'])) {
+            $api->setMerchantServiceId($options['merchantServiceId']);
         }
 
         $result = $api->doRequest();

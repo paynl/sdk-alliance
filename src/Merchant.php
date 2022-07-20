@@ -336,6 +336,44 @@ class Merchant
      * @param $options
      * @return bool
      */
+    public static function unsuspend($options = array())
+    {
+        $api = new Api\Unsuspend();
+
+        if (isset($options['merchantId'])) {
+            $api->setMerchantId($options['merchantId']);
+        }
+
+        $result = $api->doRequest();
+
+        return isset($result['result']) ? $result['result'] : false;
+    }
+
+    /**
+     * @param $options
+     * @return bool
+     */
+    public static function setPackage($options = array())
+    {
+        $api = new Api\SetPackage();
+
+        if (isset($options['merchantId'])) {
+            $api->setMerchantId($options['merchantId']);
+        }
+
+        if (isset($options['package'])) {
+            $api->setPackage($options['package']);
+        }        
+
+        $result = $api->doRequest();
+
+        return isset($result['result']) ? $result['result'] : false;
+    }
+
+    /**
+     * @param $options
+     * @return bool
+     */
     public static function markReady($options = array())
     {
         $api = new Api\MarkReady();

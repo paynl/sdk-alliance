@@ -3,7 +3,10 @@ require_once '../vendor/autoload.php';
 require_once 'config.php';
 
 try {
-    $result = Paynl\Alliance\Merchant::getList(array('state' => 'accepted'));
+    $result = Paynl\Alliance\Merchant::getList(array(
+        # Optional
+        'state' => 'accepted'
+    ));
 
     $merchants = $result->getMerchants();
 
