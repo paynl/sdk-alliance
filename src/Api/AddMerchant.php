@@ -125,9 +125,11 @@ class AddMerchant extends Api
             throw new ApiError($output);
         }
 
-        // errors are returned different in this api
+        # Errors are returned different in this api
         if ($output['success'] != 1) {
-            throw new ApiError($output['error_field'] . ' - ' . $output['error_message']);
+            $eField = empty($output['error_field']) ? '' : $output['error_field'];
+            $eMessage = empty($output['error_message']) ? '' : '-' . $output['error_message'];
+            throw new ApiError($eField . $eMessage);
         }
         return $output;
     }
