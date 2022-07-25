@@ -15,7 +15,7 @@ try {
         'description' => 'Test invoice', # The description of the invoice
 
         # Optional
-        'invoiceUrl' => 'http:#url.to.the/invoice.pdf', # the url to the invoice
+        'invoiceUrl' => 'url.to.the/invoice.pdf', # the url to the invoice
         'makeYesterday' => true, # if the invoice needs to be added in today's clearing, set this to true
         'extra1' => '...', # The first free value.
         'extra2' => '...', # The second free value.
