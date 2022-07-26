@@ -43,7 +43,7 @@ To install the PAY. PHP SDK-alliance into your project, simply
 To communicate with PAY. using this SDK, you'll need to authenticate.
 PAY. uses a token to authenticate you. You can find your token in the PAY. admin. On the bottom of the [API Tokens](https://admin.pay.nl/company/tokens) page.
 
-##### Step 1 the autoloader
+##### Step 1 The autoloader
 Composer generates an autoloader for your application.
 To be able to access the classes of the SDK, all you have to do is include the composer autoloader.
 The autoloader is located here: vendor/autoload.php
@@ -237,7 +237,7 @@ You can get the statistics of your submerchants.
 For example to calculate the amount for the invoice in the next step.
 See the following [example](https://github.com/paynl/sdk-alliance/blob/master/samples/getStatistics.php)
 
-You can use the predefined periods
+You can use the predefined periods:
 ```php
 \Paynl\Alliance\Statistics::PERIOD_THIS_WEEK
 \Paynl\Alliance\Statistics::PERIOD_LAST_WEEK
@@ -245,7 +245,7 @@ You can use the predefined periods
 \Paynl\Alliance\Statistics::PERIOD_LAST_MONTH
 ```
 
-For example
+For example:
 
 ```php
 $result = Paynl\Alliance\Statistics::getStats(array(
@@ -254,7 +254,7 @@ $result = Paynl\Alliance\Statistics::getStats(array(
 var_dump($result->getData());
 ```
 
-Or if you want to use your own start and end date
+Or if you want to use your own start and end date:
 
 ```php
 $result = Paynl\Alliance\Statistics::getStats(array(
