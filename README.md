@@ -25,27 +25,22 @@
 ---
 
 ### About
-In order to use this SDK, you'll need to have an alliance account at PAY.
+A PAY. alliance account is required for this SDK. 
 
-The alliance will be able to manage sub-merchants, and manage most of the tasks via the API that normally a merchant would do by logging in in the PAY. admin.
+As an alliance, you're able to manage sub-merchants and most of their tasks using this SDK.
 
-Also this SDK extends the standard [PAY. SDK](https://github.com/paynl/sdk), so all functions from the original SDK are also available.
+This SDK also extends the standard [PAY. SDK](https://github.com/paynl/sdk), so all functions from the original SDK are also available.
 
 ### Installation
 
 This SDK uses composer.
-
-Composer is a tool for dependency management in PHP. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you.
-
-For more information on how to use/install composer, please visit: [https://github.com/composer/composer](https://github.com/composer/composer)
-
 To install the PAY. PHP SDK-alliance into your project, simply
 
 	$ composer require paynl/sdk-alliance
 
 
 ### Setting up
-To communicate with the API of PAY., you'll need to authenticate.
+To communicate with PAY. using this SDK, you'll need to authenticate.
 PAY. uses a token to authenticate you. You can find your token in the PAY. admin. On the bottom of the [API Tokens](https://admin.pay.nl/company/tokens) page.
 
 ##### Step 1 the autoloader
@@ -65,7 +60,7 @@ To let the SDK know what your API-Token is, you'll have to register the TokenCod
 \Paynl\Config::setApiToken('****************************************');
 ```
 
-Now you're ready to make some calls
+Now you're ready to use the SDK.
 
 
 
