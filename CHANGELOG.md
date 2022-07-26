@@ -1,4 +1,4 @@
-![PAY.](https://www.pay.nl/uploads/1/brands/main_logo.png)
+<img height="200px" alt="" src="https://www.pay.nl/hubfs/25758250/images/Pay%20Logo%20-%20RGB_Primary%20Logo.png?t=1658149930330"/>
 
 # PHP SDK  Changelog #
 
