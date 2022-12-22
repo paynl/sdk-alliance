@@ -77,6 +77,4 @@ class AddClearing extends Api
     {
         return parent::doRequest('Merchant/addClearing');
     }
-
-
 }
