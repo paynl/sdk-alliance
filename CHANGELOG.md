@@ -2,6 +2,8 @@
 
 # PHP SDK  Changelog #
 
+## Release 2.1.0
+* Added addClearing method
 ## Release 2.0.0
 ### Breaking changes
 * Changes in Service:

@@ -386,4 +386,29 @@ class Merchant
 
         return !empty($result['request']['result']);
     }
+
+    /**
+     * @param $options
+     * @return bool
+     */
+    public static function addClearing($options = array())
+    {
+        $api = new Api\AddClearing();
+
+        if (isset($options['amount'])) {
+            $api->setAmount($options['amount']);
+        }
+
+        if (isset($options['merchantId'])) {
+            $api->setMerchantId($options['merchantId']);
+        }
+
+        if (isset($options['contentCategoryId'])) {
+            $api->setContentCategoryId($options['contentCategoryId']);
+        }
+
+        $result = $api->doRequest();
+
+        return !empty($result['request']['result']);
+    }
 }
