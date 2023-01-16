@@ -21,6 +21,7 @@
 	- [9. Disable a payment method](#9-disable-a-payment-method)
 	- [10. Get statistics of your submerchants](#10-get-statistics-of-your-submerchants)
 	- [11. Creating an invoice for a merchant](#11-creating-an-invoice-for-a-merchant)
+    - [12. Creating a clearing for a merchant](#12-creating-an-clearing-for-a-merchant)
 
 ---
 
@@ -288,6 +289,27 @@ $result = Paynl\Alliance\Invoice::add(array(
     'extra2' => 'free variable 2',
     'extra3' => 'free variable 3',
     "merchantServiceId": "SL-####-####", # The ServiceId of the submerchant that needs to be invoiced  
+));
+
+$referenceId = $result->referenceId();
+```
+
+##### 12. Creating an clearing for a merchant
+You can add an clearing for a merchant.
+The addClearing function should be called after 5:00 am CET, as the daily totals of the clearings are calculated at 4:00 am CET each day.
+See the following [example](https://github.com/paynl/sdk-alliance/blob/master/samples/addClearing.php)
+
+```php
+\Paynl\Config::setServiceId('SL-####-####');
+
+$result = \Paynl\Alliance\Merchant::addClearing(array(
+
+    # Required
+    'amount' => '123', # The amount to clear, in cents.
+
+    # Optional
+    'merchantId' => 'M-1234-5678', # The id of the merchant
+    'contentCategoryId' => '1234-5678' # The content category Id
 ));
 
 $referenceId = $result->referenceId();
