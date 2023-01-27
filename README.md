@@ -21,7 +21,7 @@
 	- [9. Disable a payment method](#9-disable-a-payment-method)
 	- [10. Get statistics of your submerchants](#10-get-statistics-of-your-submerchants)
 	- [11. Creating an invoice for a merchant](#11-creating-an-invoice-for-a-merchant)
-    - [12. Creating a clearing for a merchant](#12-creating-an-clearing-for-a-merchant)
+    - [12. Creating a clearing for a merchant](#12-creating-a-clearing-for-a-merchant)
 
 ---
 
