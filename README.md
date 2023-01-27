@@ -294,8 +294,8 @@ $result = Paynl\Alliance\Invoice::add(array(
 $referenceId = $result->referenceId();
 ```
 
-##### 12. Creating an clearing for a merchant
-You can add an clearing for a merchant.
+##### 12. Creating a clearing for a merchant
+You can add a clearing for a merchant.
 The addClearing function should be called after 5:00 am CET, as the daily totals of the clearings are calculated at 4:00 am CET each day.
 See the following [example](https://github.com/paynl/sdk-alliance/blob/master/samples/addClearing.php)
 
