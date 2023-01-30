@@ -300,8 +300,6 @@ The addClearing function should be called after 5:00 am CET, as the daily totals
 See the following [example](https://github.com/paynl/sdk-alliance/blob/master/samples/addClearing.php)
 
 ```php
-\Paynl\Config::setServiceId('SL-####-####');
-
 $result = \Paynl\Alliance\Merchant::addClearing(array(
 
     # Required
@@ -309,7 +307,7 @@ $result = \Paynl\Alliance\Merchant::addClearing(array(
 
     # Optional
     'merchantId' => 'M-1234-5678', # The id of the merchant
-    'contentCategoryId' => '1234-5678' # The content category Id
+    'contentCategoryId' => 'CT-1234-5678' # The content category Id
 ));
 
 $referenceId = $result->referenceId();
