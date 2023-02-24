@@ -22,7 +22,7 @@ try {
                     ),
                 ),
                 array(
-                    'id' => 739, # AfterPay
+                    'id' => 2561, # Riverty
                     'settings' => array(
                         'merchantId' => 1234,
                         'merchantPassword' => 'merchantPassword',
