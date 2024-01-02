@@ -23,9 +23,17 @@ class Merchant extends Result
         return $this->data['merchantName'];
     }
 
+    /**
+     * @deprecated use getPackageType() instead.
+     */
     public function getPackageName()
     {
-        return $this->data['packageName'];
+        return $this->data['packageType'];
+    }
+
+    public function getPackageType()
+    {
+        return $this->data['packageType'];
     }
 
     public function getInvoiceAllowed()
