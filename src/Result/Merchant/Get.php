@@ -19,12 +19,7 @@ class Get extends Merchant
     public function getDocuments()
     {
         return $this->data['documents'];
-    }
-
-    public function getPackageName()
-    {
-        return $this->data['packageType'];
-    }
+    }   
 
     public function getMissingDocuments()
     {
