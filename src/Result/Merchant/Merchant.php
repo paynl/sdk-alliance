@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 13-1-2016
- * Time: 19:01
- */
 
 namespace Paynl\Alliance\Result\Merchant;
-
 
 use Paynl\Result\Result;
 
@@ -23,20 +16,20 @@ class Merchant extends Result
         return $this->data['merchantName'];
     }
 
-    /**   
+    /**
      * @return string
      */
     public function getPackageName()
     {
-        return (!empty($this->data['packageName']) ? $this->data['packageName'] : $this->getPackageType());
+        return (!empty($this->data['packageName']) ? (string)$this->data['packageName'] : $this->getPackageType());
     }
 
-    /**   
+    /**
      * @return string
      */
     public function getPackageType()
     {
-        return (!empty($this->data['contract']['packageType']) ? $this->data['contract']['packageType'] : '');
+        return (!empty($this->data['contract']['packageType']) ? (string)$this->data['contract']['packageType'] : '');
     }
 
     /**   

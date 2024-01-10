@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 13-1-2016
- * Time: 19:34
- */
 
 namespace Paynl\Alliance\Api;
-
 
 use Paynl\Error\Required;
 use Paynl\Error\Api as ApiError;
@@ -69,7 +62,7 @@ class AddDocument extends Api
         if (!isset($this->_content) && !empty($this->_content)) {
             throw new Required('content');
         }
-        if(count($this->_content) == 1){
+        if (count($this->_content) == 1) {
             $this->data['documentFile'] = $this->_content[0];
         } else {
             $this->data['documentFile'] = $this->_content;
@@ -80,7 +73,6 @@ class AddDocument extends Api
 
     protected function processResult($result)
     {
-
         $output = Helper::objectToArray($result);
 
         // errors are returned different in this api

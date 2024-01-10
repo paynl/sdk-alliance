@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 14-1-2016
- * Time: 16:11
- */
 
 namespace Paynl\Alliance\Api;
-
 
 use Paynl\Error\Required;
 
@@ -48,7 +41,7 @@ class AddService extends Api
      * @var string The scrambled plugin version ID which has the following format: PV-0000-0000
      */
     private $_pluginVersionId;
-     /**
+    /**
      * @var string A phone number that customers can use to contact the merchant
      */
     private $_contactPhone;

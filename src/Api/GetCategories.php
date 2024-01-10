@@ -1,14 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 14-1-2016
- * Time: 20:19
- */
-
 namespace Paynl\Alliance\Api;
-
 
 use Paynl\Error\Api as ApiError;
 use Paynl\Helper;
@@ -20,7 +12,7 @@ class GetCategories extends Api
     /**
      * @var string The paymentOptionId
      */
-    protected $paymentOptionId ;
+    protected $paymentOptionId;
 
     /**
      * @param int\null $paymentOptionId

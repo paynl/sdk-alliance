@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 13-1-2016
- * Time: 19:34
- */
 
 namespace Paynl\Alliance\Api;
-
 
 use Paynl\Error\Required;
 
@@ -73,19 +66,19 @@ class AddBankAccount extends Api
      */
     protected function getData()
     {
-        if(empty($this->merchantId)){
+        if (empty($this->merchantId)) {
             throw new Required('merchantId');
         } else {
             $this->data['merchantId'] = $this->merchantId;
         }
 
-        if(empty($this->returnUrl)){
+        if (empty($this->returnUrl)) {
             throw new Required('returnUrl');
         } else {
             $this->data['returnUrl'] = $this->returnUrl;
         }
 
-        if(!empty($this->bankId)) {
+        if (!empty($this->bankId)) {
             $this->data['bankId'] = $this->bankId;
         }
 

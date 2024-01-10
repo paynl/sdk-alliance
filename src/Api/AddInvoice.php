@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 13-1-2016
- * Time: 19:34
- */
 
 namespace Paynl\Alliance\Api;
-
 
 use Paynl\Error\Required;
 
@@ -58,7 +51,7 @@ class AddInvoice extends Api
      * @var string The service id of the merchant to invoice.
      */
     protected $merchantServiceId;
-    
+
 
     /**
      * @param string $merchantId
