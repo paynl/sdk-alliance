@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 13-1-2016
- * Time: 19:01
- */
 
 namespace Paynl\Alliance\Result\Merchant;
-
 
 use Paynl\Result\Result;
 
@@ -23,34 +16,60 @@ class Merchant extends Result
         return $this->data['merchantName'];
     }
 
+    /**
+     * @return string
+     */
     public function getPackageName()
     {
-        return $this->data['packageName'];
+        return (!empty($this->data['packageName']) ? (string)$this->data['packageName'] : $this->getPackageType());
     }
 
+    /**
+     * @return string
+     */
+    public function getPackageType()
+    {
+        return (!empty($this->data['contract']['packageType']) ? (string)$this->data['contract']['packageType'] : '');
+    }
+
+    /**   
+     * @return string
+     */
     public function getInvoiceAllowed()
     {
-        return $this->data['invoiceAllowed'];
+        return $this->data['contract']['invoiceAllowed'];
     }
 
+    /**   
+     * @return string
+     */
     public function getPayoutInterval()
     {
-        return $this->data['payoutInterval'];
+        return $this->data['contract']['payoutInterval'];
     }
 
+    /**   
+     * @return string
+     */
     public function getCreatedDate()
     {
-        return $this->data['createdDate'];
+        return $this->data['contract']['createdDate'];
     }
 
+    /**   
+     * @return string
+     */
     public function getAcceptedDate()
     {
-        return $this->data['acceptedDate'];
+        return $this->data['contract']['acceptedDate'];
     }
 
+    /**   
+     * @return string
+     */
     public function getDeletedDate()
     {
-        return $this->data['deletedDate'];
+        return $this->data['contract']['deletedDate'];
     }
 
     public function getServices()

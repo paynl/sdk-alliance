@@ -1,20 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 13-1-2016
- * Time: 17:50
- */
 
 namespace Paynl\Alliance\Api;
-
 
 use Paynl\Error;
 use Paynl\Helper;
 
 class GetMerchants extends Api
 {
-
     protected $version = 7;
 
     /**

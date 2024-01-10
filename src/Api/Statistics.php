@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 13-1-2016
- * Time: 19:34
- */
 
 namespace Paynl\Alliance\Api;
-
 
 use Paynl\Error;
 use Paynl\Error\Required;
@@ -26,7 +19,11 @@ class Statistics extends Api
      */
     private $endDate;
     private $validOperators = array(
-        'eq', 'neq', 'gt', 'lt', 'like'
+      'eq',
+      'neq',
+      'gt',
+      'lt',
+      'like'
     );
 
     public function addFilter($key, $value, $operator = 'eq')
@@ -36,9 +33,9 @@ class Statistics extends Api
         }
 
         $filter = array(
-            'key' => $key,
-            'operator' => $operator,
-            'value' => $value
+          'key' => $key,
+          'operator' => $operator,
+          'value' => $value
         );
         array_push($this->filters, $filter);
     }
@@ -67,8 +64,8 @@ class Statistics extends Api
     protected function getData()
     {
         $this->data['groupBy'] = array(
-            'company_id',
-            'payment_profile_id'
+          'company_id',
+          'payment_profile_id'
         );
 
         if (!isset($this->startDate)) {
@@ -96,9 +93,9 @@ class Statistics extends Api
     private function makeFilter($normalFiter)
     {
         $arrFilter = array(
-            'filterType' => array(),
-            'filterOperator' => array(),
-            'filterValue' => array()
+          'filterType' => array(),
+          'filterOperator' => array(),
+          'filterValue' => array()
         );
 
         $i = 0;

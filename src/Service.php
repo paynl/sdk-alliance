@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 14-1-2016
- * Time: 19:02
- */
 
 namespace Paynl\Alliance;
-
 
 use Paynl\Alliance\Api;
 use Paynl\Error\Required;
@@ -36,7 +29,7 @@ class Service
         }
 
         $exchange = [];
-        if(isset($options['exchange'])){
+        if (isset($options['exchange'])) {
             $exchange = $options['exchange'];
         }
         if (isset($options['alwaysSendExchange'])) {
@@ -49,14 +42,14 @@ class Service
         }
         if (isset($options['paymentOptions'])) {
             $api->setPaymentOptions($options['paymentOptions']);
-        }       
+        }
         if (isset($options['pluginVersionId'])) {
             $api->setPluginVersionId($options['pluginVersionId']);
-        }        
+        }
         if (isset($options['contactPhone'])) {
             $api->setContactPhone($options['contactPhone']);
         }
-        
+
         $result = $api->doRequest();
 
         return new Result\Service\Add($result);
@@ -122,7 +115,7 @@ class Service
         } else {
             $api->setPaymentProfileId($options['paymentMethodId']);
         }
-        if(isset($options['settings'])){
+        if (isset($options['settings'])) {
             $api->setSettings($options['settings']);
         }
 

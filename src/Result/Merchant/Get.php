@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 13-1-2016
- * Time: 16:45
- */
 
 namespace Paynl\Alliance\Result\Merchant;
-
 
 class Get extends Merchant
 {
@@ -19,11 +12,6 @@ class Get extends Merchant
     public function getDocuments()
     {
         return $this->data['documents'];
-    }
-
-    public function getPackageName()
-    {
-        return $this->data['packageType'];
     }
 
     public function getMissingDocuments()

@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 14-1-2016
- * Time: 20:19
- */
 
 namespace Paynl\Alliance\Api;
-
 
 use Paynl\Error\Api as ApiError;
 
@@ -30,7 +23,7 @@ class EnablePaymentOption extends Api
             throw new ApiError($output);
         }
 
-        if(isset($output['request']['result']) && $output['request']['result'] == 0){
+        if (isset($output['request']['result']) && $output['request']['result'] == 0) {
             throw new ApiError($output['request']['errorMessage']);
         }
         return $output;
@@ -63,7 +56,7 @@ class EnablePaymentOption extends Api
         }
         $this->data['paymentProfileId'] = $this->paymentProfileId;
 
-        if(isset($this->settings)){
+        if (isset($this->settings)) {
             $this->data['settings'] = $this->settings;
         }
 

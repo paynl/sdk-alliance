@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 4-3-2016
- * Time: 16:20
- */
 
 namespace Paynl\Alliance;
-
 
 use Paynl\Error\Required;
 
