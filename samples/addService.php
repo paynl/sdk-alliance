@@ -10,6 +10,8 @@ try {
             'name' => 'My New Service', # The name of the service
             'description' => 'My New Service description', # Description of the service. It is important to be as acurate as possible.
             'categoryId' => 'CY-2010-6000', # See https://admin.pay.nl/data/categories for a list of available category-codes
+			'alwaysSendExchange' => true, # Set to false if you only want a notification on successfull payment (not recommended)
+
             /**
              * You can select the payment options that need to be enabled.
              * If you don't supply any payment methods, all available payment methods will be enabled
